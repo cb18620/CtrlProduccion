@@ -1,0 +1,141 @@
+﻿@page "/Dashboard"
+@inherits MainLayout
+@layout MainLayout
+
+<MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-4">Incio</MudText>
+<MudGrid>
+    <MudItem xs="12" sm="6" md="3">
+        <MudPaper Class="d-flex flex-row pt-6 pb-4" Style="height:100px;">
+            <MudIcon Icon="@Icons.Material.Filled.SettingsApplications" Color="Color.Primary" Class="mx-4" Style="width:54px; height:54px;"></MudIcon>
+            <div>
+                <MudText Typo="Typo.subtitle1" Class="mud-text-secondary mb-n1">Parametrizacion</MudText>
+                <MudText Typo="Typo.h5"></MudText>
+            </div>
+        </MudPaper>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="3">
+        <MudPaper Class="d-flex flex-row pt-6 pb-4" Style="height:100px;">
+            <MudIcon Icon="@Icons.Material.Filled.DocumentScanner" Color="Color.Secondary" Class="mx-4" Style="width:54px; height:54px;"></MudIcon>
+            <div>
+                <MudText Typo="Typo.subtitle1" Class="mud-text-secondary mb-n1">Stock</MudText>
+                <MudText Typo="Typo.h5"></MudText>
+            </div>
+        </MudPaper>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="3">
+        <MudPaper Class="d-flex flex-row pt-6 pb-4" Style="height:100px;">
+            <MudIcon Icon="@Icons.Material.Filled.Receipt" Color="Color.Success" Class="mx-4" Style="width:54px; height:54px;"></MudIcon>
+            <div>
+                <MudText Typo="Typo.subtitle1" Class="mud-text-secondary mb-n1">Despachos</MudText>
+                <MudText Typo="Typo.h5"></MudText>
+            </div>
+        </MudPaper>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="3">
+        <MudPaper Class="d-flex flex-row pt-6 pb-4" Style="height:100px;">
+            <MudIcon Icon="@Icons.Material.Filled.ShowChart" Color="Color.Warning" Class="mx-4" Style="width:54px; height:54px;"></MudIcon>
+            <div>
+                <MudText Typo="Typo.subtitle1" Class="mud-text-secondary mb-n1">Reportes</MudText>
+                <MudText Typo="Typo.h5"></MudText>
+            </div>
+        </MudPaper>
+    </MudItem>
+
+
+
+
+    <MudItem xs="12" sm="8">
+        <MudPaper Class="pa-4">
+            <div>
+                <MudChart ChartType="ChartType.Bar" ChartSeries="@Series" @bind-SelectedIndex="Index" XAxisLabels="@XAxisLabels" Width="100%" Height="350px"></MudChart>
+            </div>
+           
+            @code {
+                private int Index = -1; //default value cannot be 0 -> first selectedindex is 0.
+
+                public List<ChartSeries> Series = new List<ChartSeries>()
+            {
+        new ChartSeries() { Name = "Botella Ambar", Data = new double[] { 40, 20, 25, 27, 46, 60, 48, 80, 15 } },
+        new ChartSeries() { Name = "Botella decorado", Data = new double[] { 19, 24, 35, 13, 28, 15, 13, 16, 31 } },
+        new ChartSeries() { Name = "Botella Normal", Data = new double[] { 8, 6, 11, 13, 4, 16, 10, 16, 18 } },
+    };
+                public string[] XAxisLabels = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep" };
+            }
+        </MudPaper>
+    </MudItem>
+    <MudItem xs="12" sm="4">
+        <MudPaper Class="pa-4" Style="height:300px;">
+            <MudChart ChartType="ChartType.Donut" LegendPosition="@LegendPosition" Width="300px" Height="300px"
+                      InputData="@data" InputLabels="@labels">
+            </MudChart>
+
+
+           
+            @code {
+                public double[] data = { 25, 77, 28, 5 };
+                public string[] labels = { "Vidrio", "Arena", "Componente menores", "Agua" };
+
+                public Position LegendPosition { get; set; } = Position.Bottom;
+
+                private void OnSelectedValue(Position value)
+                {
+                    switch (value)
+                    {
+                        case Position.Top:
+                            LegendPosition = Position.Top;
+                            break;
+                        case Position.Left:
+                            LegendPosition = Position.Left;
+                            break;
+                        case Position.Right:
+                            LegendPosition = Position.Right;
+                            break;
+                        case Position.Bottom:
+                            LegendPosition = Position.Bottom;
+                            break;
+                        case Position.Start:
+                            LegendPosition = Position.Start;
+                            break;
+                        case Position.End:
+                            LegendPosition = Position.End;
+                            break;
+                    }
+                }
+            }
+        </MudPaper>
+    </MudItem>
+   
+</MudGrid>
+
+@code { 
+
+    private bool arrows = true;
+    private bool bullets = true;
+    private bool enableSwipeGesture = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Slide;
+
+
+    EarningReport[] earningReports = new EarningReport[]{
+            new EarningReport { Name = "Lunees", Title = "Reactor Engineer", Avatar = "https://avatars2.githubusercontent.com/u/71094850?s=460&u=66c16f5bb7d27dc751f6759a82a3a070c8c7fe4b&v=4", Salary = "0.99", Severity = Color.Success, SeverityTitle = "Low"},
+            new EarningReport { Name = "Mikes-gh", Title = "Developer", Avatar = "https://avatars.githubusercontent.com/u/16208742?s=120&v=4", Salary = "19.12K", Severity = Color.Secondary, SeverityTitle = "Medium"},
+            new EarningReport { Name = "Garderoben", Title = "CSS Magician", Avatar = "https://avatars2.githubusercontent.com/u/10367109?s=460&amp;u=2abf95f9e01132e8e2915def42895ffe99c5d2c6&amp;v=4", Salary = "1337", Severity = Color.Primary, SeverityTitle = "High"},
+        };
+
+    class EarningReport
+    {
+        public string Avatar;
+        public string Name;
+        public string Title;
+        public Color Severity;
+        public string SeverityTitle;
+        public string Salary;
+    }
+
+
+
+
+
+
+
+}

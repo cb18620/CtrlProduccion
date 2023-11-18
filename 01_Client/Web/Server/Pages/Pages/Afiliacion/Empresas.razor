@@ -1,0 +1,167 @@
+﻿@page "/Afiliacion/Empresas"
+@inherits MainBaseComponent
+@layout MainLayout
+@using Infraestructura.Models.Clasificador;
+@using Infraestructura.Models.Empresas;
+@inject IJSRuntime JSRuntime
+
+
+<MudTabs Elevation="4" Rounded="true" Color="@Color.Dark" PrevIcon="@Icons.Material.Filled.SkipPrevious" NextIcon="@Icons.Material.Filled.SkipNext">
+    <MudTabPanel Text="DATOS DE LA ENMPRESA">
+        <div>
+            <MudCard>
+                <EditForm OnValidSubmit="OnValidEmpresaNuevo" Model="_EmpresaNuevo">
+                    <DataAnnotationsValidator />
+                    <MudCardContent>
+                        <MudGrid>
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_EmpresaNuevo.Nit" For="@(() => _EmpresaNuevo.Nit)" Label="Nit" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_EmpresaNuevo.RazonSocial" For="@(() => _EmpresaNuevo.RazonSocial)" Label="Razón Social" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_EmpresaNuevo.Ubicacion" For="@(() => _EmpresaNuevo.Ubicacion)" Label="Ubicación" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_EmpresaNuevo.NombreRepresentante" For="@(() => _EmpresaNuevo.NombreRepresentante)" Label="Nombre de Representante" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+
+
+                                <CustomAutoComplete TItem="GenClasificadorDto"
+                                                    jsonData="@jsonTipoEmpresa"
+                                                    NameValue="IdgenClasificador"
+                                                    NameDescripcion="Descripcion"
+                                @bind-DataValue="@_EmpresaNuevo.IdcTipoempresa"
+                                                    pPlaceHolder="Tipo de Empresa" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Success">Guardar</MudButton>
+                    </MudCardActions>
+               </EditForm>
+            </MudCard>
+
+            <MudCard>
+
+
+                <MudTable Items="@Empresa" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped" Filter="new Func<EmpresaDto,bool>(FilterFunc1)">
+                    <ToolBarContent>
+
+                        <MudSpacer />
+                        <MudTextField @bind-Value="searchString" Placeholder="Buscar" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                    </ToolBarContent>
+                    <HeaderContent>
+                        <MudTh><MudTableSortLabel SortBy="new Func<EmpresaDto, object>(x=>x.IdinsEmpresa)">Nr</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<EmpresaDto, object>(x=>x.Nit)">NIT</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<EmpresaDto, object>(x=>x.RazonSocial)">RAZON SOCIAL</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<EmpresaDto, object>(x=>x.Ubicacion)">UBICACION</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<EmpresaDto, object>(x=>x.NombreRepresentante)">REPRESENTANTE</MudTableSortLabel></MudTh>
+                        <MudTh>Tipo de Empresa</MudTh>
+                        <MudTh>Opciones</MudTh>
+                    </HeaderContent>
+
+                    <RowTemplate>
+                        <MudTd Style="width:40px">
+
+                            <MudLink Typo="Typo.caption">@context.IdcTipoempresa</MudLink><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudLink Typo="Typo.caption">@context.Nit</MudLink><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.RazonSocial</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.Ubicacion</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.NombreRepresentante</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.Descripcion</MudText><br />
+                        </MudTd>
+                        <MudTd>
+
+                            <div class="d-flex">
+                                <div class="m-auto">
+
+                                    <MudTooltip Text="Editar" Color="Color.Secondary" Placement="Placement.Top">
+                                        <MudIconButton Color="Color.Warning" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Edit" Size="Size.Small" OnClick="@(() => ShowBtnEdit(context.IdinsEmpresa))" /><MudText Typo="Typo.caption"></MudText>
+                                    </MudTooltip>
+
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Placement="Placement.Top">
+                                        <MudIconButton Color="Color.Error" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" OnClick="@(() => ShowBtnEliminaEmpresa(context.IdinsEmpresa))" /><MudText Typo="Typo.caption"></MudText>
+                                    </MudTooltip>
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Placement="Placement.Top">
+                                        <MudIconButton Color="Color.Info" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Print" Size="Size.Small" /><MudText Typo="Typo.caption"></MudText>
+                                    </MudTooltip>
+                                </div>
+                            </div>
+                        </MudTd>
+                    </RowTemplate>
+                    <PagerContent>
+                        <MudTablePager />
+                    </PagerContent>
+                    <ChildRowContent>
+                        @if (context.VerDetalle)
+                        {
+                            <MudTr>
+                                <td colspan="5" style="padding:1px; margin:1px">
+
+
+                                    <MudCard>
+                                        <MudCardHeader Class="pt-2 pb-2" Style="background:#eaeaea">
+                                            <CardHeaderContent>
+                                                <MudText Typo="Typo.caption"><strong>Registro Nro.:@context.IdinsEmpresa</strong></MudText>
+                                            </CardHeaderContent>
+                                        </MudCardHeader>
+                                        <MudCardContent Class="pa-2">
+                                            <MudGrid>
+                                                <MudItem xs="12" sm="6" md="4">
+                                                    <MudTextField @bind-Value="context.Nit" Label="Nombre" Variant="Variant.Text"></MudTextField>
+                                                </MudItem>
+                                                <MudItem xs="12" sm="6" md="4">
+                                                    <MudTextField @bind-Value="context.RazonSocial" Label="Observacion" Variant="Variant.Text"></MudTextField>
+                                                </MudItem>
+                                                <MudItem xs="12" sm="6" md="4">
+                                                    <MudTextField @bind-Value="context.Ubicacion" Label="Ubicacion" Variant="Variant.Text"></MudTextField>
+                                                </MudItem>
+                                                <MudItem xs="12" sm="6" md="4">
+                                                    <MudTextField @bind-Value="context.NombreRepresentante" Label="Razon Social" Variant="Variant.Text"></MudTextField>
+                                                </MudItem>
+                                                <MudItem xs="12" sm="6" md="4">
+
+                                                    <CustomAutoComplete TItem="GenClasificadorDto"
+                                                                        jsonData="@jsonTipoEmpresa"
+                                                                        NameValue="IdgenClasificador"
+                                                                        NameDescripcion="Descripcion"
+                                                    @bind-DataValue="@context.IdcTipoempresa"
+                                                                        pPlaceHolder="Tipo de Empresa" />
+                                                </MudItem>
+                                            </MudGrid>
+                                        </MudCardContent>
+                                        <MudCardActions>
+                                            @* <MudGrid>
+                                                <MudItem Class="d-flex ml-auto">
+                                                    <div class="ml-2">
+                                                        <MudButton Variant="Variant.Outlined" Color="Color.Success" OnClick="@(() => EditEmpresa(context))">Guardar</MudButton>
+                                                        <MudButton Variant="Variant.Outlined" Color="Color.Error" OnClick="@(() => ShowBtnEditCancelEmpresa(context.IdinsEmpresa))">Cancelar</MudButton>
+                                                    </div>
+                                                </MudItem>
+                                            </MudGrid> *@
+                                        </MudCardActions>
+                                    </MudCard>
+
+                                </td>
+                            </MudTr>
+                        }
+                    </ChildRowContent>
+                </MudTable>
+
+            </MudCard>
+        </div>
+    </MudTabPanel>
+</MudTabs>

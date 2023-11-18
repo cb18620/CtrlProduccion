@@ -1,0 +1,160 @@
+﻿@page "/Transporte"
+@using Infraestructura.Models.Transporte;
+@inherits MainBaseComponent
+@layout MainLayout
+
+
+<MudTabs Elevation="4" Rounded="true" Color="@Color.Dark" PrevIcon="@Icons.Material.Filled.SkipPrevious" NextIcon="@Icons.Material.Filled.SkipNext">
+    <MudTabPanel Text="GESTION DE TRANSPORTE">
+        <div>
+            <MudCard>
+                <EditForm OnValidSubmit="OnValidTransporteNuevo" Model="_TransporteNuevo">
+                    <DataAnnotationsValidator />
+                    <MudCardContent>
+                        <MudGrid>
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_TransporteNuevo.Marca" For="@(() => _TransporteNuevo.Marca)" Label="Marca" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_TransporteNuevo.Matricula" For="@(() => _TransporteNuevo.Matricula)" Label="Matricula" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_TransporteNuevo.NombreTransportista" For="@(() => _TransporteNuevo.NombreTransportista)" Label="Nombre de Transportista" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_TransporteNuevo.NroLicencia" For="@(() => _TransporteNuevo.NroLicencia)" Label="Numero de Licencia" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_TransporteNuevo.Categoria" For="@(() => _TransporteNuevo.Categoria)" Label="Categoria" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_TransporteNuevo.largo" For="@(() => _TransporteNuevo.largo)" Label="largo" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_TransporteNuevo.Ancho" For="@(() => _TransporteNuevo.Ancho)" Label="Ancho" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+
+                        </MudGrid>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Success">Guardar</MudButton>
+                    </MudCardActions>
+                </EditForm>
+            </MudCard>
+            <MudCard>
+                <MudTable Items="@TransporteList" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped" Filter="new Func<TransporteDto,bool>(FilterFunc1)">
+                    <ToolBarContent>
+
+                        <MudSpacer />
+                        <MudTextField @bind-Value="searchString" Placeholder="Buscar" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                    </ToolBarContent>
+                    <HeaderContent>
+                        <MudTh><MudTableSortLabel SortBy="new Func<TransporteDto, object>(x=>x.IdinsTransporte)">Nr</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<TransporteDto, object>(x=>x.Marca)">MARCA</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<TransporteDto, object>(x=>x.Matricula)">MATRICULA</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<TransporteDto, object>(x=>x.NombreTransportista)">TRANSPORTISTA</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<TransporteDto, object>(x=>x.NroLicencia)">LICENCIA</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<TransporteDto, object>(x=>x.Categoria)">CATEGORIA</MudTableSortLabel></MudTh>
+
+
+                        <MudTh>Opciones</MudTh>
+                    </HeaderContent>
+
+                    <RowTemplate>
+                        <MudTd Style="width:40px">
+                            <MudAvatar Color="Color.Secondary" Variant="Variant.Outlined" Style="font-size:1rem">@context.IdinsTransporte</MudAvatar>
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.Marca</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.Matricula</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.NombreTransportista</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.NroLicencia</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.Categoria</MudText><br />
+                        </MudTd>
+
+
+                        <MudTd>
+
+                            <div class="d-flex">
+                                <div class="m-auto">
+
+                                    <MudTooltip Text="Editar" Color="Color.Secondary" Placement="Placement.Top">
+                                        <MudIconButton Color="Color.Warning" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Edit" Size="Size.Small" OnClick="@(() => ShowBtnEdit(context.IdinsTransporte))" /><MudText Typo="Typo.caption"></MudText>
+                                    </MudTooltip>
+
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Placement="Placement.Top">
+                                        <MudIconButton Color="Color.Error" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" OnClick="@(() => EliminaTransporte(context.IdinsTransporte))" /><MudText Typo="Typo.caption"></MudText>
+                                    </MudTooltip>
+                                </div>
+                            </div>
+                        </MudTd>
+                    </RowTemplate>
+                    <PagerContent>
+                        <MudTablePager />
+                    </PagerContent>
+                    <ChildRowContent>
+                        @if (context.VerDetalle)
+                        {
+                            <MudTr>
+                                <td colspan="8" style="padding:30px; margin:15px">
+
+
+                                    <MudCard>
+                                        <MudCardHeader Class="pt-2 pb-2" Style="background:#eaeaea">
+                                            <CardHeaderContent>
+                                                <MudText Typo="Typo.caption"><strong>Registro Nro.:@context.IdinsTransporte</strong></MudText>
+                                            </CardHeaderContent>
+                                        </MudCardHeader>
+                                        <MudCardContent Class="pa-2">
+                                            <MudGrid>
+                                                <MudItem xs="12" sm="6" md="4">
+                                                    <MudTextField @bind-Value="context.Marca" Label="Marca" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                                </MudItem>
+                                                <MudItem xs="12" sm="6" md="4">
+                                                    <MudTextField @bind-Value="context.Matricula" Label="Matricula" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                                </MudItem>
+                                                <MudItem xs="12" sm="6" md="4">
+                                                    <MudTextField @bind-Value="context.NombreTransportista" Label="Nombre Transportista" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                                </MudItem>
+                                                <MudItem xs="12" sm="6" md="4">
+                                                    <MudTextField @bind-Value="context.NroLicencia" Label="Nro Licencia" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                                </MudItem>
+                                                <MudItem xs="12" sm="6" md="4">
+                                                    <MudTextField @bind-Value="context.Categoria" Label="Categoria" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                                </MudItem>
+                                                <MudItem xs="12" sm="6" md="4">
+                                                    <MudTextField @bind-Value="context.Color" Label="Color" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                                </MudItem>
+
+                                            </MudGrid>
+                                        </MudCardContent>
+                                        <MudCardActions>
+                                            <MudGrid>
+                                                <MudItem Class="d-flex ml-auto">
+                                                    <div class="ml-2">
+                                                        <MudButton Variant="Variant.Outlined" Color="Color.Success" OnClick="@(() => EditTrasporte(context))">Guardar</MudButton>
+                                                        <MudButton Variant="Variant.Outlined" Color="Color.Error" OnClick="@(() => EditCancelTransporte(context.IdinsTransporte))">Cancelar</MudButton>
+                                                    </div>
+                                                </MudItem>
+                                            </MudGrid>
+                                        </MudCardActions>
+                                    </MudCard>
+
+                                </td>
+                            </MudTr>
+                        }
+                    </ChildRowContent>
+                </MudTable>
+            </MudCard>
+        </div>
+
+    </MudTabPanel>
+</MudTabs>
