@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Persistencia.Contexts;
 using Persistencia.Repository.Common.Aplicacion;
 using Persistencia.Repository.Common.Seguridad;
+using Persistencia.Repository.Custom;
 
 
 
@@ -24,11 +25,12 @@ namespace Persistencia
             services.AddTransient(typeof(IRepositoryAsync<>), typeof(AppRepositoryAsync<>));           
             services.AddTransient<ISegurityRepository, SegurityRepository>();
             services.AddTransient<IUnitOfWork, AppUnitOfWork>();
-        
+
 
             //TODO: Agregar aqui Repositorios especificos elaborados Ej.: services.AddTransient<ILibroRepository, LibroRepository>();
             #region Repositories
-         
+            services.AddTransient<IDetallePalletsRepository, DetallePalletsRepository>();
+            services.AddTransient<IDetallePalletsProcesoRepository, DetallePalletsProcesoRepository>();
 
 
 

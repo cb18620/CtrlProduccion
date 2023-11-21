@@ -1,0 +1,318 @@
+﻿@page "/Almacen/Cabecera"
+@inherits MainBaseComponent
+@layout MainLayout
+@using Infraestructura.Models.Clasificador
+@using Infraestructura.Models.Almacen
+@using Syncfusion.Blazor.Popups
+@inject IJSRuntime JSRuntime
+
+<MudTabs Elevation="4" Rounded="true" Color="@Color.Dark" PrevIcon="@Icons.Material.Filled.SkipPrevious" NextIcon="@Icons.Material.Filled.SkipNext">
+    <MudTabPanel Text="REGISTRO DE PRODUCCION ">
+        <div>
+            <MudCard>
+                <EditForm OnInvalidSubmit="OnValidAlmCabeceraNuevo" Model="_AlmCabeceraNuevo">
+                    <DataAnnotationsValidator />
+                    <MudCardContent>
+                        <MudGrid>
+                            <MudItem xs="12" sm="6" md="4">
+
+
+                                <CustomAutoComplete TItem="GenClasificadorDto"
+                                                    jsonData="@jsonTipoProducto"
+                                                    NameValue="IdgenClasificador"
+                                                    NameDescripcion="Descripcion"
+                                                    @bind-DataValue="@_AlmCabeceraNuevo.Molde"
+                                                    pPlaceHolder="Producto" />
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+
+
+                                <CustomAutoComplete TItem="GenClasificadorDto"
+                                                    jsonData="@jsonColorProducto"
+                                                    NameValue="IdgenClasificador"
+                                                    NameDescripcion="Descripcion"
+                                                    @bind-DataValue="@_AlmCabeceraNuevo.Color"
+                                                    pPlaceHolder="Color" />
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+
+
+                                <CustomAutoComplete TItem="GenClasificadorDto"
+                                                    jsonData="@jsonLinea"
+                                                    NameValue="IdgenClasificador"
+                                                    NameDescripcion="Descripcion"
+                                                    @bind-DataValue="@_AlmCabeceraNuevo.Linea"
+                                                    pPlaceHolder="Linea" />
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_AlmCabeceraNuevo.OrdenProduccion" For="@(() => _AlmCabeceraNuevo.OrdenProduccion)" Label="Orden de Produccion" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+                        </MudGrid>
+                    </MudCardContent>
+                    <MudCardActions>
+
+                        <MudButton OnClick="@(() => SaveAlmCaberaPallet())" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Unarchive" Color="Color.Success">Guardar</MudButton>
+                    </MudCardActions>
+                </EditForm>
+            </MudCard>
+            <MudCard>
+                <MudTable Items="@AlmacenCabeceraListaTabla" Elevation="0" Breakpoint="Breakpoint.None" FixedHeader="@fixed_header" FixedFooter="@fixed_footer" Height="@(fixed_header || fixed_footer ?"400px":"")"
+                          Dense="@dense" Hover="@hover" ReadOnly="@ronly" Filter="new Func<ValmCabecerapalletsDto,bool>(FilterFunc1)">
+                    <ToolBarContent>
+
+                        <MudSpacer />
+                        <MudTextField @bind-Value="searchString" Placeholder="Buscar por producto y Orde de Produccion" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                    </ToolBarContent>
+                    <HeaderContent>
+                        <MudTh><MudTableSortLabel SortBy="new Func<ValmCabecerapalletsDto, object>(x=>x.IdAlmCabeceraPallets)">N°</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<ValmCabecerapalletsDto, object>(x=>x.Descripcionmolde)">Producto</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<ValmCabecerapalletsDto, object>(x=>x.Color)">Color</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<ValmCabecerapalletsDto, object>(x=>x.Descripcionlinea)">Linea</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<ValmCabecerapalletsDto, object>(x=>x.OrdenProduccion)">Orden Produccion</MudTableSortLabel></MudTh>
+
+
+
+                        <MudTh>Opciones</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd>
+                            <MudAvatar Color="Color.Secondary" Variant="Variant.Outlined" Style="font-size:1rem">@context.IdAlmCabeceraPallets</MudAvatar>
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.Descripcionmolde</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.Descripcioncolor</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.Descripcionlinea</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.OrdenProduccion</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <div class="d-flex">
+                                    <div class="ml-auto">
+
+                                        <MudTooltip Text="Total de Pallet CONFORME" Color="Color.Secondary" Placement="Placement.Top">
+                                            <MudIconButton Class="ml-5" Color="Color.Success" Icon="@Icons.Material.Outlined.Inventory2" Size="Size.Large" />  <MudText Typo="Typo.caption">@context.Conforme</MudText>
+                                        </MudTooltip>
+                                        <MudTooltip Text="Total de Pallet EN PROCESO" Color="Color.Warning" Placement="Placement.Top">
+                                            <MudIconButton Class="ml-5" Color="Color.Warning" Icon="@Icons.Material.Outlined.Inventory2" Size="Size.Large" />  <MudText Typo="Typo.caption">@context.EnProceso</MudText>
+                                        </MudTooltip>
+                                        <MudTooltip Text="Total de Pallet NO CONFORME" Color="Color.Error" Placement="Placement.Top">
+                                            <MudIconButton Class="ml-5" Color="Color.Error" Icon="@Icons.Material.Outlined.Inventory2" Size="Size.Large" />  <MudText Typo="Typo.caption">@context.NoConforme</MudText>
+                                        </MudTooltip>
+                                        <MudTooltip Text="Total de Pallet RE PROCESO" Color="Color.Dark" Placement="Placement.Top">
+                                            <MudIconButton Class="ml-5" Color="Color.Dark" Icon="@Icons.Material.Outlined.Inventory2" Size="Size.Large" />  <MudText Typo="Typo.caption">@context.Reproceso</MudText>
+                                        </MudTooltip>
+                                    </div>
+                                </div>
+                            </MudTd>
+
+                            <MudTd>
+                                <div class="d-flex">
+                                    <div class="m-auto">
+
+                                        <MudTooltip Text="Editar" Color="Color.Secondary" Placement="Placement.Top">
+                                            <MudIconButton Color="Color.Warning" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Edit" Size="Size.Small" OnClick="@(() => ShowBtnEditCabecera(context.IdAlmCabeceraPallets))" /><MudText Typo="Typo.caption"></MudText>
+                                        </MudTooltip>
+
+                                        <MudTooltip Text="Eliminar" Color="Color.Default" Placement="Placement.Top">
+                                            <MudIconButton Color="Color.Error" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" OnClick="@(() => EliminarAlmCabecera(context.IdAlmCabeceraPallets))" /><MudText Typo="Typo.caption"></MudText>
+                                        </MudTooltip>
+                                        <MudTooltip Text="Detalle" Color="Color.Default" Placement="Placement.Top">
+                                            <MudIconButton Color="Color.Tertiary" Variant="Variant.Filled" Icon="@Icons.Material.Filled.AddBox" Size="Size.Small" OnClick="@(() => ShowBtnadd(context.IdAlmCabeceraPallets))" />
+                                            <MudText Typo="Typo.caption"></MudText>
+                                        </MudTooltip>
+                                    </div>
+                                </div>
+                            </MudTd>
+
+                        </RowTemplate>
+                        <PagerContent>
+                            <MudTablePager />
+                        </PagerContent>
+                        <ChildRowContent>
+                            @if (context.VerDetalle)
+                        {
+                            <MudTr>
+                                <td colspan="11" style="padding:1px; margin:1px">
+                                    <MudCard>
+                                        <MudCardHeader Class="pt-2 pb-2" Style="background:#eaeaea">
+                                            <CardHeaderContent>
+                                                <MudText Typo="Typo.caption"><strong>Registro Nro.:@context.IdAlmCabeceraPallets</strong></MudText>
+                                            </CardHeaderContent>
+                                        </MudCardHeader>
+                                        <MudCardContent Class="pa-2">
+                                            <MudGrid>
+                                                <MudItem xs="3" sm="3">
+                                                    <TAutoComplete TItem="GenClasificadorDto"
+                                                                   Valores="@ProductoList"
+                                                                   Value="IdgenClasificador"
+                                                                   Descripcion="Descripcion"
+                                                                   @bind-DataValue="@context.Molde" />
+                                                </MudItem>
+                                                <MudItem xs="3" sm="3">
+                                                    <TAutoComplete TItem="GenClasificadorDto"
+                                                                   Valores="@ColorList"
+                                                                   Value="IdgenClasificador"
+                                                                   Descripcion="Descripcion"
+                                                                   @bind-DataValue="@context.Color" />
+                                                </MudItem>
+
+                                                <MudItem xs="3" sm="3">
+                                                    <MudTextField @bind-Value="context.OrdenProduccion" Label="Orden de Produccion" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                                </MudItem>
+                                            </MudGrid>
+                                        </MudCardContent>
+                                        <MudCardActions>
+                                            <MudGrid>
+                                                <MudItem Class="d-flex ml-auto">
+                                                    <div class="ml-2">
+                                                        <MudButton Variant="Variant.Outlined" Color="Color.Success" OnClick="@(() => SaveEditCabecera(context))">Guardar</MudButton>
+                                                        <MudButton Variant="Variant.Outlined" Color="Color.Error" OnClick="@(() => ShowBtnEditCabecer(context.IdAlmCabeceraPallets))">Cancelar</MudButton>
+                                                    </div>
+                                                </MudItem>
+                                            </MudGrid>
+                                        </MudCardActions>
+                                    </MudCard>
+                                </td>
+                            </MudTr>
+                        }
+                    </ChildRowContent>
+                </MudTable>
+            </MudCard>
+        </div>
+    </MudTabPanel>
+</MudTabs>
+
+
+
+
+
+
+
+
+
+
+<!--AGREGAR VER DETALLE-->
+<SfDialog Target="#target" ZIndex="999" Width="60%" Height="90%" AllowDragging="true" IsModal="true" style="min-height: 90%" CloseOnEscape="false" @bind-Visible="@popupAdmView">
+    <DialogTemplates>
+        <Header><strong>@_TituloPopup2 </strong> <strong>@_TituloPopup</strong></Header>
+        <Content>
+            <MudCardContent>
+                <MudDivider></MudDivider>
+                <br>
+                <div>
+                    <MudCard>
+                        <EditForm OnValidSubmit="OnTableContenidoPallet" Model="_AlmContenidoPalletsNew">
+                            <DataAnnotationsValidator />
+                            <MudCardContent>
+                                <MudGrid>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudText Typo="Typo.caption" Style="margin-left:15px"> <strong>Tipo</strong></MudText>
+                                        <TAutoComplete TItem="GenClasificadorDto"
+                                                       Valores="@TipoList"
+                                                       Value="IdgenClasificador"
+                                                       Descripcion="Descripcion"
+                                                       @bind-DataValue="@_AlmContenidoPalletsNew.Tipo" />
+                                    </MudItem>
+                                    <MudItem xs="12" sm="6" md="6">
+                                        <MudText Typo="Typo.caption" Style="margin-left:15px"> <strong>Turno</strong></MudText>
+                                        <TAutoComplete TItem="GenClasificadorDto"
+                                                       Valores="@ListTurno"
+                                                       Value="IdgenClasificador"
+                                                       Descripcion="Descripcion"
+                                                       @bind-DataValue="@_AlmContenidoPalletsNew.Turno" />
+                                    </MudItem>
+                                    <MudItem xs="12" sm="6" md="6">
+                                        <MudDatePicker @bind-Value="_AlmContenidoPalletsNew.Fecha" For="@(() => _AlmContenidoPalletsNew.Fecha)" Label="FECHA" Variant="Variant.Outlined" Margin="Margin.Dense" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.LensBlur" AdornmentColor="Color.Primary" @bind-Date="date"></MudDatePicker>
+                                    </MudItem>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudNumericField @bind-Value="_AlmContenidoPalletsNew.NumPalletinicial" Culture="@_en" For="@(() => _AlmContenidoPalletsNew.NumPalletinicial)" Label="Nro de Pallet Inicial" Variant="Variant.Outlined" Margin="Margin.Dense"></MudNumericField>
+                                    </MudItem>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudNumericField @bind-Value="_AlmContenidoPalletsNew.NumPalletFinal" Culture="@_en" For="@(() => _AlmContenidoPalletsNew.NumPalletFinal)" Label="Nro de Pallet Final" Variant="Variant.Outlined" Margin="Margin.Dense"></MudNumericField>
+                                    </MudItem>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudNumericField @bind-Value="_AlmContenidoPalletsNew.CantidadBotellas" Culture="@_en" For="@(() => _AlmContenidoPalletsNew.CantidadBotellas)" Label="Cantidad Botellas por Pallet" Variant="Variant.Outlined" Margin="Margin.Dense"></MudNumericField>
+                                    </MudItem>
+                                </MudGrid>
+                            </MudCardContent>
+                            <MudCardActions>
+
+                                <MudButton OnClick="@(() =>SaveContenidoPallets())" Variant="Variant.Filled" Color="Color.Success">Registrar Pallets</MudButton>
+                            </MudCardActions>
+                        </EditForm>
+                    </MudCard>
+                    <br>
+                    <MudCard>
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h5">PRODUCTO EN PROCESO O NO CONFORME</MudText> <br>
+                            </CardHeaderContent>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudTable Items="@ListAlmContenidoPalletsproceso" Elevation="0" MultiSelection="true" @bind-SelectedItems="selectedItems2" Breakpoint="Breakpoint.None" FixedHeader=true FixedFooter=false
+                                      Dense=true Hover=true ReadOnly=true Filter="FilterByNumPallet">
+                                <ToolBarContent>
+
+                                    <MudSpacer />
+                                    <MudTextField @bind-Value="numPalletSearchString" Placeholder="Buscar por número de palle" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                                </ToolBarContent>
+                                <HeaderContent>
+                                    @*<MudTh><MudTableSortLabel SortBy="new Func<AlmContenidoPalletsDto, object>(x=>x.IdAlmContenidoPallets)">Nr</MudTableSortLabel></MudTh>*@
+                                    <MudTh><MudTableSortLabel SortBy="new Func<AlmContenidoPalletsDto, object>(x=>x.Fecha)">Fecha</MudTableSortLabel></MudTh>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<AlmContenidoPalletsDto, object>(x=>x.NumPallet)">Numero Pallet</MudTableSortLabel></MudTh>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<AlmContenidoPalletsDto, object>(x=>x.DescripcionTipo)">Estado</MudTableSortLabel></MudTh>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<AlmContenidoPalletsDto, object>(x=>x.DescripcionTurno)">Turno</MudTableSortLabel></MudTh>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<AlmContenidoPalletsDto, object>(x=>x.CantidadBotellas)">Botellas x Pallet</MudTableSortLabel></MudTh>
+
+                                    <MudTh>Opciones</MudTh>
+                                </HeaderContent>
+                                <RowTemplate>
+                                    @*	<MudTd>
+                                    <MudText Typo="Typo.caption">@context.IdAlmContenidoPallets</MudText><br />
+                                    </MudTd>*@
+
+                                    <MudTd>
+                                        <MudText style="visibility: hidden;" Typo="Typo.caption">@context.IdAlmContenidoPallets</MudText>
+                                            <MudText Typo="Typo.caption">@context.Fecha</MudText><br />
+                                        </MudTd>
+                                        <MudTd>
+                                            <MudText Typo="Typo.caption">@context.NumPallet</MudText><br />
+                                        </MudTd>
+                                        <MudTd>
+                                            <MudText Typo="Typo.caption">@context.DescripcionTipo</MudText><br />
+                                        </MudTd>
+                                        <MudTd>
+                                            <MudText Typo="Typo.caption">@context.DescripcionTurno</MudText><br />
+                                        </MudTd>
+                                        <MudTd>
+                                            <MudText Typo="Typo.caption">@context.CantidadBotellas</MudText><br />
+                                        </MudTd>
+                                        <MudTd>
+
+                                            <div class="d-flex">
+                                                <div class="ml-auto">
+                                                    <MudTooltip Text="Eliminar" Color="Color.Default" Placement="Placement.Top">
+                                                        <MudIconButton Color="Color.Error" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" OnClick="@(() => ShowBtnEliminarContenido(context.IdAlmContenidoPallets))" /><MudText Typo="Typo.caption"></MudText>
+                                                    </MudTooltip>
+
+                                                </div>
+                                            </div>
+                                        </MudTd>
+                                    </RowTemplate>
+                            </MudTable>
+                        </MudCardContent>
+                    </MudCard>
+                </div>
+            </MudCardContent>
+        </Content>
+    </DialogTemplates>
+    <DialogButtons>
+
+        <DialogButton Content="CERRAR" OnClick="@btnCancelPop" />
+    </DialogButtons>
+</SfDialog>

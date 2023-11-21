@@ -17,7 +17,7 @@ namespace Aplicacion.Features.Clasificador.Queries
 
     public class GetAllGenClasificadorQuery : IRequest<Response<List<GenClasificadorDto>>>
     {
-  
+
 
 
         public class GetAllGenClasificadorQueryHandler : IRequestHandler<GetAllGenClasificadorQuery, Response<List<GenClasificadorDto>>>
@@ -32,7 +32,7 @@ namespace Aplicacion.Features.Clasificador.Queries
 
             public async Task<Response<List<GenClasificadorDto>>> Handle(GetAllGenClasificadorQuery request, CancellationToken cancellationToken)
             {
-                var _GenClasificador = await _repositoryAsync.ListAsync(new GenClasificadorSpecification(),cancellationToken);
+                var _GenClasificador = await _repositoryAsync.ListAsync(new GenClasificadorSpecification(), cancellationToken);
                 var _GenClasificadorDto = _mapper.Map<List<GenClasificadorDto>>(_GenClasificador);
                 return new Response<List<GenClasificadorDto>>(_GenClasificadorDto);
             }
@@ -44,8 +44,8 @@ namespace Aplicacion.Features.Clasificador.Queries
     public class GenClasificadorSpecification : Specification<GenClasificador>
     {
         public GenClasificadorSpecification()
-            {
-                Query.Include(x => x.Tipo);
-            }
+        {
+            Query.Include(x => x.Tipo);
+        }
     }
 }

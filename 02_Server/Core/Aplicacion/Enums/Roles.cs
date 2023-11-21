@@ -11,7 +11,17 @@
 
     public enum ClasificadorTipo
     {
-        especialidad=1,
+        ColorEnvase =1,
+        TipoEmpresa=2,
+        Producto=3,
+        linea = 5,
+        turnos = 8 ,
+        tipos = 9 ,  
+        ProductoConforme =15,
+
+
+
+        especialidad =1, 
         area = 2,   
         proceso =4, 
         tipoMaquinaria =5, 

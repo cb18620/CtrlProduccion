@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Shared
-build_property.ProjectDir = C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Infraestructura\Shared\
+build_property.ProjectDir = C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Shared\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

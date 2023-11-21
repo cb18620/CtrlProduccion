@@ -1,4 +1,6 @@
 ﻿
+using Aplicacion.DTOs;
+using Aplicacion.DTOs.Almacen;
 using Aplicacion.DTOs.empresa;
 using Aplicacion.DTOs.Parametricas;
 using Aplicacion.DTOs.Segurity;
@@ -6,7 +8,9 @@ using Aplicacion.DTOs.Transporte;
 using Aplicacion.Features.Aplicacion.Parametricas.Commands;
 using AutoMapper;
 using Dominio.Entities;
+using Dominio.Entities.Almacen;
 using Dominio.Entities.empresa;
+
 using Dominio.Entities.Seguridad;
 using Dominio.Entities.Seguridadmetricas;
 using Dominio.Entities.Transporte;
@@ -25,7 +29,8 @@ namespace Aplicacion.Mappings
             CreateMap<GenClasificadortipo, GenClasificadortipoDto>();
             CreateMap<InsEmpresa, InsEmpresaDto>();
             CreateMap<InsTransporte, TransporteDto>();
-
+            CreateMap<AlmCabeceraPallets, AlmCabeceraPalletsDto>();
+            CreateMap<AlmContenidoPallets, AlmContenidoPalletsDto>();   
             /**///**
 
             #endregion
@@ -38,7 +43,9 @@ namespace Aplicacion.Mappings
             CreateMap<GenClasificadorDto, GenClasificador>();
             CreateMap<InsEmpresaDto, InsEmpresa>();
             CreateMap<TransporteDto, InsTransporte>();
-
+            CreateMap<AlmCabeceraPalletsDto, AlmCabeceraPallets>();
+            CreateMap<AlmContenidoPalletsDto, AlmContenidoPallets>();
+            CreateMap<ValmCabecerapallets, ValmCabecerapalletsDto>();
 
 
             #endregion 

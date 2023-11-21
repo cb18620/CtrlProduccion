@@ -3,7 +3,6 @@ using Infraestructura.Abstract;
 using Infraestructura.Models.Authentication;
 using Infraestructura.Models.Clasificador;
 using Infraestructura.Models.Empresas;
-
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.JSInterop;
 using MudBlazor;
@@ -60,12 +59,30 @@ namespace Server.Pages.Pages.Afiliacion
                 return true;
             return false;
         }
-
+        protected async Task GetTipoEmpresa()
+        {
+            try
+            {
+                
+                _Loading.Show();
+                var _result = await _Rest.GetAsync<List<GenClasificadorDto>>("Clasificador/TipoEmpresa");
+                _Loading.Hide();
+                //_MessageShow(_result.Message, _result.State);
+                if (_result.State != State.Success)
+                    return;
+                EmpresaList = _result.Data;
+                jsonTipoEmpresa = JsonSerializer.Serialize(EmpresaList);
+            }
+            catch (Exception e)
+            {
+                _MessageShow(e.Message, State.Error);
+            }
+        }
         protected override async void OnInitialized()
         {
             await onTablaAsyncEmpresa();
             await servicio();
-
+            await GetTipoEmpresa();
 
         }
 
@@ -177,6 +194,11 @@ namespace Server.Pages.Pages.Afiliacion
             vAfiliacion.VerDetalle = !vAfiliacion.VerDetalle;
         }
 
+        protected async void ShowBtnEditCancelEmpresa(int v_IdEmpresa)
+        {
+            var vAfiliacion = Empresa.First(f => f.IdinsEmpresa == v_IdEmpresa);
+            vAfiliacion.VerDetalle = !vAfiliacion.VerDetalle;
+        }
         protected async void Reporte()
         {
             await JSRuntime.InvokeVoidAsync("CargaReportePop", new { ruta = "/reports/PAPELBOL/SIPRE/rptBoletaEntrega", pNotaingreso = 108 });
