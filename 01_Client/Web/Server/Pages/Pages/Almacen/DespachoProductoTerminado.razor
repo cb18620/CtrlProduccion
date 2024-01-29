@@ -5,8 +5,8 @@
 @using Infraestructura.Models.Almacen
 @using Infraestructura.Models.Transporte
 @using Infraestructura.Models.Empresas
-
 @using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Buttons
 @inject IJSRuntime JSRuntime
 
 <MudTabs Elevation="4" Rounded="true" Color="@Color.Dark" PrevIcon="@Icons.Material.Filled.SkipPrevious" NextIcon="@Icons.Material.Filled.SkipNext">
@@ -108,26 +108,26 @@
                                 <MudText Typo="Typo.caption">@context.Nit</MudText><br />
                             </MudTd>
 
-                            @*  <MudTd class="sticky-right-column">
+                             <MudTd class="sticky-right-column">
 
                         <div class="d-flex">
                         <div class="ml-auto">
 
-                        <MudFab Color="Color.Tertiary" Icon="@Icons.Material.Filled.Delete" aria-label="Eliminar Articulo" OnClick="@((e) => OpenDialog())" Variant="Variant.Filled" />-->
+                        @* <MudFab Color="Color.Tertiary" Icon="@Icons.Material.Filled.Delete" aria-label="Eliminar Articulo" OnClick="@((e) => OpenDialog())" Variant="Variant.Filled" />-->
                         <MudTooltip Text="Editar" Color="Color.Secondary" Placement="Placement.Top">
                         <MudIconButton  Color="Color.Warning" Variant="Variant.Filled"   Icon="@Icons.Material.Filled.Edit" Size="Size.Small"  OnClick="@(() => ShowBtnEdit4(context.Idsolicitud))"/><MudText Typo="Typo.caption"></MudText>
                         </MudTooltip>
                         <MudTooltip Text="Eliminar" Color="Color.Default" Placement="Placement.Top">
                         <MudIconButton  Color="Color.Error" Variant="Variant.Filled"   Icon="@Icons.Material.Filled.Delete" Size="Size.Small"  OnClick="@(() => ShowBtnElimina(context.Idsolicitud))" /><MudText Typo="Typo.caption"></MudText>
-                        </MudTooltip>
+                        </MudTooltip> *@
 
                         <MudTooltip Text="Adicionar Datos" Color="Color.Secondary" Placement="Placement.Top">
-                        <MudIconButton Color="Color.Secondary" Variant="Variant.Filled" Icon="@Icons.Material.Filled.ListAlt" Size="Size.Small" OnClick="@(() => ShowBtnaddDetalle(context.Idsolicitud))" /><MudText Typo="Typo.caption"></MudText>
+                                        <MudIconButton Color="Color.Secondary" Variant="Variant.Filled" Icon="@Icons.Material.Filled.ListAlt" Size="Size.Small" OnClick="@(() => ShowBtnadd(context.IdalmSalidadespacho))" /><MudText Typo="Typo.caption"></MudText>
                         </MudTooltip>
 
                         </div>
                         </div>
-                        </MudTd> *@
+                        </MudTd> 
                         </RowTemplate>
                         <PagerContent>
                             <MudTablePager />
@@ -136,5 +136,85 @@
                     </MudTable>
                 </MudCard>
             </div>
+
+
+
+
+
+
+           <SfDialog Target="#target" ZIndex="999" Width="60%" Height="90%" AllowDragging="true" IsModal="true" CloseOnEscape="false" @bind-Visible="@popupAdmViewPallets">
+                                                        <DialogTemplates>
+                                                            <Header><strong>@_TituloPopup2 </strong> <strong>@_TituloPopup</strong></Header>
+                                                            <Content>
+                                                                <MudCardContent>
+                                                                    <MudDivider></MudDivider>
+                                                                    <br />
+
+                                                                    <div>
+
+                                                                    <br />
+
+
+
+
+                            <MudTable Items="@AlmSalidadespachodetalle" MultiSelection="true" @bind-SelectedItems="selectedItems2" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped">
+                                <!-- Definición de las columnas y otros elementos de la tabla aquí -->
+                            </MudTable>
+
+                                
+                                                                        <ToolBarContent>
+
+                                                                            <MudSpacer />
+                                                                            <MudTextField @bind-Value="searchString" Placeholder="Buscar" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                                                                        </ToolBarContent>
+                                                                        <HeaderContent>
+                                                                            <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachodetalleDto, object>(x=>x.IdalmSalidadespachodetalle)">Nr</MudTableSortLabel></MudTh>
+                                                                            <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachodetalleDto, object>(x=>x.IdalmSalidadespacho)">Codigo</MudTableSortLabel></MudTh>
+                                                                            <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachodetalleDto, object>(x=>x.NumeroPallet)">Numero de Pallet</MudTableSortLabel></MudTh>
+                                                                        </HeaderContent>
+
+                                                                        @* <RowTemplate>
+                                                                            <MudTd Style="width:40px">
+                                                                               
+                                                                                <MudText Typo="Typo.caption">@context.IdalmSalidadespachodetalle</MudText><br />
+                                                                            </MudTd>
+                                                                            <MudTd>
+                                                                                <MudText Typo="Typo.caption">@context.IdalmSalidadespacho</MudText><br />
+                                                                            </MudTd>
+                                                                            <MudTd>
+                                                                                <MudText Typo="Typo.caption">@context.NumeroPallet</MudText><br />
+                                                                            </MudTd>
+                                                                        </RowTemplate> *@
+                                                                        <PagerContent>
+                                                                            <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                                                                        </PagerContent>
+                                                                         <FooterContent>
+                                                                            <MudTd colspan="3">Select All</MudTd>
+                                                                        </FooterContent>
+                                                                    </MudTable>
+                                                       
+
+
+                                                                        </div>
+                                                                </MudCardContent>
+                                                            </Content>
+                                                        </DialogTemplates>
+                                                        <DialogButtons>
+                                                            <DialogButton Content="AGREGAR" OnClick="@btnSelecGuardarDetalle"/>
+                                                            <DialogButton Content="ELIMINAR" OnClick="@btnSelecEliminarDetalle" />
+                                                             <DialogButton Content="CERRAR" OnClick="@btnCancelPop" />
+                                                        </DialogButtons>
+
+
+
+
+
+
+
+
+
+                                                    </SfDialog>
+
+
         </MudTabPanel>
     </MudTabs>

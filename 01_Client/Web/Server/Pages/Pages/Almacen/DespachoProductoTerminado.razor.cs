@@ -10,11 +10,13 @@ using Microsoft.JSInterop;
 using Syncfusion.Blazor.Lists;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
+using MudBlazor;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Infraestructura.Models.Empresas;
+using Dominio.Entities.Almacen;
+
 
 namespace Server.Pages.Pages.Almacen
 {
@@ -23,7 +25,7 @@ namespace Server.Pages.Pages.Almacen
         public AlmSalidadespachoDto _almsalidadespachonuevo = new AlmSalidadespachoDto();
         public DespachoDto _almsalidadespachopos = new DespachoDto();
         public List<AlmSalidadespachoDto> AlmSalidaDespachoListaTabla { get; set; }
-        public static List <TransporteDto> TransporteList {  get; set; }
+        public static List<TransporteDto> TransporteList { get; set; }
         public string jsonTransporteList { get; set; }
         public List<EmpresaDto> EmpresaList { get; set; }
         public string JsonEmpresaList { get; set; }
@@ -43,7 +45,7 @@ namespace Server.Pages.Pages.Almacen
         public bool documento { get; set; } = true;
         private string searchString = "";
         private string ordenProduccionSearchString = "";
- 
+
 
 
         private bool popupAdmView { get; set; } = false;
@@ -160,6 +162,65 @@ namespace Server.Pages.Pages.Almacen
                 _MessageShow(e.Message, State.Error);
             }
         }
+
+
+
+        //AGREGAR EL DETALLE
+
+        private static List<AlmSalidadespachodetalleDto> AlmSalidadespachodetalle { get; set; }
+
+
+        public AlmSalidadespachodetalleDto _AlmSalidadespachodetalleNuevo = new AlmSalidadespachodetalleDto();
+        string _TituloPopup; string _TituloPopup1; int _TituloPopup2;
+        private bool popupAdmViewPallets { get; set; } = false;
+
+       
+        private HashSet<AlmSalidadespachodetalleDto> selectedItems2 = new HashSet<AlmSalidadespachodetalleDto>();
+        protected void OpenDialog1(int v_IdEmpresa)
+        {
+            var vAfiliacion = AlmSalidaDespachoListaTabla.First(f => f.IdalmSalidadespacho == v_IdEmpresa);
+            //vAfiliacion.VerDetalle = !vAfiliacion.VerDetalle;
+            _TituloPopup = vAfiliacion.IdalmSalidadespacho.ToString();
+            //this.popupAdmViewExtractoVerificados = true;
+
+        }
+        protected async Task onTablaAsyncPallets(int idorden)
+        {
+            try
+            {
+                _Loading.Show();
+                var _result = await _Rest.GetAsync<List<AlmSalidadespachodetalleDto>>($"AlmSalidadespachodetalle/palletalmacen/{idorden}");
+                _Loading.Hide();
+                if (_result.State != State.Success)
+                {
+                    _DialogShow(_result.Message, _result.State);
+                }
+                AlmSalidadespachodetalle = _result.Data;
+            }
+            catch (Exception e)
+            {
+                _MessageShow(e.Message, State.Error);
+            }
+        }
+        protected async void ShowBtnadd(int v_IdEmpresa)
+        {
+            var vAfiliacion = AlmSalidaDespachoListaTabla.First(f => f.IdalmSalidadespacho == v_IdEmpresa);
+
+            _TituloPopup = "REGISTRO - DETALLE DE SALIDA DE PALLETS DE ALMACEN DE PT";
+            _TituloPopup1 = "PALLETS ASIGNADOS";
+            // _TituloPopup = vAfiliacion.IdalmSalidadespacho.ToString();
+            // vAfiliacion.VerDetalle = !vAfiliacion.VerDetalle;
+            await onTablaAsyncPallets(vAfiliacion.IdalmSalidadespacho);
+            _TituloPopup2 = vAfiliacion.IdalmSalidadespacho;
+            this.popupAdmViewPallets = true;
+        }
+        protected async Task btnCancelPop()
+        {
+
+
+            this.popupAdmViewPallets = false;
+        }
+
 
 
     }
