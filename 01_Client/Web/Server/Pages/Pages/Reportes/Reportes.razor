@@ -1,0 +1,44 @@
+﻿@page "/Reportes"
+
+<MudPaper Class="py-8" Style="background: linear-gradient(to bottom right, #f3f3f3, #e2e2e2)">
+
+  <MudContainer MaxWidth="MaxWidth.Large" Class="pa-8">
+  
+    <MudGrid>
+    
+      <MudItem xs="12">
+        <MudText Align="Align.Center" Typo="Typo.h3" >
+          <MudIcon Icon="@Icons.Material.Filled.Insights" Size="Size.Large" Class="mr-3" />  
+          Centro de Reportes
+        </MudText>
+      </MudItem>
+      
+      <MudItem xs="12" md="4">
+        
+        <MudCard Elevation="25">
+        
+          <MudCardHeader>
+            <MudText Typo="Typo.h6">Ventas por Sucursal</MudText>  
+          </MudCardHeader>
+          
+          <MudCardContent>
+            <!-- gráfico -->  
+          </MudCardContent>
+          
+          <div/>
+          
+          <MudCardActions>
+            <MudButton Variant="Variant.Filled" FullWidth="true" StartIcon="@Icons.Custom.Brands.MudBlazor">Consulta</MudButton>
+          </MudCardActions>
+        
+        </MudCard>
+        
+      </MudItem>
+      
+      <!-- Más Tarjetas de Reportes -->
+      
+    </MudGrid>
+  
+  </MudContainer>
+  
+</MudPaper>

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Infraestructura.Models.Empresas
 {
     public class EmpresaDto
-    {
+    {  
         public int IdinsEmpresa { get; set; }
         public string Nit { get; set; }
         public string NombreRepresentante { get; set; }

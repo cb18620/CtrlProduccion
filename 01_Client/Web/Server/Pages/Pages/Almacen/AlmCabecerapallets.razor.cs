@@ -35,8 +35,6 @@ namespace Server.Pages.Pages.Almacen
 
         private bool dense = true;
         private bool hover = true;
-        private bool striped = true;
-        private bool bordered = true;
         private bool ronly = true;
         bool fixed_header = true;
         bool fixed_footer = false;
@@ -61,23 +59,22 @@ namespace Server.Pages.Pages.Almacen
             return false;
         }
 
-        protected override async void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
-            await onTablaAsyncCabeceraPallet();
+            var tasks = new List<Task>
+    {
+        onTablaAsyncCabeceraPallet(),
+        GetTipoProducto(),
+        GetColorProducto(),
+        GetLinea(),
+        onTablaAsyncCabecera(),
+        GetTurno(),
+        GetTipo()
+    };
 
-            await GetTipoProducto();
-            StateHasChanged();
-            await GetColorProducto();
-            StateHasChanged();
-            await GetLinea();
-            StateHasChanged();
-            await onTablaAsyncCabecera();
-            StateHasChanged();
-            await GetTurno();
-            StateHasChanged();
-            await GetTipo();
-            StateHasChanged();
+            await Task.WhenAll(tasks);
         }
+
 
         protected async Task SaveAlmCaberaPallet()
         {
@@ -161,6 +158,7 @@ namespace Server.Pages.Pages.Almacen
                 }
             });
         }
+
         protected async Task GetTipo()
         {
             try
@@ -381,11 +379,16 @@ namespace Server.Pages.Pages.Almacen
         }
         protected async Task onTablaAsyncContenido(int idCab)
         {
-
+            try { 
             var _result = await _Rest.GetAsync<List<AlmContenidoPalletsDto>>($"AlmContenidoPallets/DetallePallet/{idCab}");
 
             ListAlmContenidoPallets = _result.Data;
-
+                this.popupAdmView = true;
+            }
+            catch (Exception e)
+            {
+                _MessageShow(e.Message, State.Error);
+            }
         }
         protected async Task onTablaAsyncContenidoProceso(int idCab)
         {
@@ -528,9 +531,148 @@ namespace Server.Pages.Pages.Almacen
             });
         }
 
+        private async Task btnSelecGuardarConforme()
+        {
 
+
+            String valores = (selectedItems2 == null ? "" : string.Join(", ", selectedItems2.Select(x => x.IdAlmContenidoPallets)));
+            String[] arreglo = valores.Split(',');
+
+            _Loading.Show();
+            foreach (var l in arreglo)
+            {
+                try
+                {
+                    _AlmContenidoPalletsNew.IdAlmContenidoPallets = Int32.Parse(l);
+                    _AlmContenidoPalletsNew.Tipo = 15;
+                    _AlmContenidoPalletsNew.Estadolectura = 2; // conforme
+                    var _update = await _Rest.PutAsync<int>("AlmContenidoPallets", _AlmContenidoPalletsNew, _AlmContenidoPalletsNew.IdAlmContenidoPallets);
+                    if (_update.State == State.Success)
+                    {
+
+
+                        // DtoZfriReprocesoRepaletizado.IdalmAlmacenlpallets = _update.Data;
+                        //DtoZfriReprocesoRepaletizado.VerDetalle = !DtoZfriReprocesoRepaletizado.VerDetalle;
+                    }
+                    else
+                    {
+                        //  _MessageShow(_update.Message, _update.State);
+                    }
+                }
+                catch (Exception e)
+                {
+                    _DialogShow(e.Message, State.Error);
+                }
+
+            }
+            _Loading.Hide();
+            await onTablaAsyncContenido(_TituloPopup2);
+            StateHasChanged();
+            await onTablaAsyncContenidoProceso(_TituloPopup2);
+            StateHasChanged();
+            HashSet<AlmContenidoPalletsDto> selectedItems3 = new HashSet<AlmContenidoPalletsDto>();
+            selectedItems2 = selectedItems3;
+            _MessageShow("Modificados de Manera correcta", State.Success);
+            _Loading.Hide();
+
+
+        }
+
+        private async Task btnSelecGuardarNoReprocesar()
+        {
+            ;
+
+            String valores = (selectedItems2 == null ? "" : string.Join(", ", selectedItems2.Select(x => x.IdAlmContenidoPallets)));
+            String[] arreglo = valores.Split(',');
+
+            _Loading.Show();
+            foreach (var l in arreglo)
+            {
+                try
+                {
+
+                    _AlmContenidoPalletsNew.IdAlmContenidoPallets = Int32.Parse(l);
+                    _AlmContenidoPalletsNew.Tipo = 13;
+                    _AlmContenidoPalletsNew.Estadolectura = 3; /// rEPROCESSAR
+                    var _update = await _Rest.PutAsync<int>("AlmContenidoPallets", _AlmContenidoPalletsNew, _AlmContenidoPalletsNew.IdAlmContenidoPallets);
+                    if (_update.State == State.Success)
+                    {
+                        //  _MessageShow(_update.Message, _update.State);
+
+                        // DtoZfriReprocesoRepaletizado.IdalmAlmacenlpallets = _update.Data;
+                        //DtoZfriReprocesoRepaletizado.VerDetalle = !DtoZfriReprocesoRepaletizado.VerDetalle;
+                    }
+                    else
+                    {
+                        //    _MessageShow(_update.Message, _update.State);
+                    }
+                }
+                catch (Exception e)
+                {
+                    // _DialogShow(e.Message, State.Error);
+                }
+
+            }
+            _Loading.Hide();
+            await onTablaAsyncContenido(_TituloPopup2);
+            StateHasChanged();
+            await onTablaAsyncContenidoProceso(_TituloPopup2);
+            StateHasChanged();
+            HashSet<AlmContenidoPalletsDto> selectedItems3 = new HashSet<AlmContenidoPalletsDto>();
+            selectedItems2 = selectedItems3;
+            _MessageShow("Modificados de Manera correcta", State.Success);
+            _Loading.Hide();
+
+        }
+
+        private async Task btnSelecGuardarNoConforme()
+        {
+
+
+            String valores = (selectedItems2 == null ? "" : string.Join(", ", selectedItems2.Select(x => x.IdAlmContenidoPallets)));
+            String[] arreglo = valores.Split(',');
+
+            _Loading.Show();
+            foreach (var l in arreglo)
+            {
+                try
+                {
+                    _AlmContenidoPalletsNew.IdAlmContenidoPallets = Int32.Parse(l);
+                    _AlmContenidoPalletsNew.Tipo = 14;
+                    _AlmContenidoPalletsNew.Estadolectura = 4; // NO conforme
+                    var _update = await _Rest.PutAsync<int>("AlmContenidoPallets", _AlmContenidoPalletsNew, _AlmContenidoPalletsNew.IdAlmContenidoPallets);
+                    if (_update.State == State.Success)
+                    {
+
+
+                        // DtoZfriReprocesoRepaletizado.IdalmAlmacenlpallets = _update.Data;
+                        //DtoZfriReprocesoRepaletizado.VerDetalle = !DtoZfriReprocesoRepaletizado.VerDetalle;
+                    }
+                    else
+                    {
+                        //  _MessageShow(_update.Message, _update.State);
+                    }
+                }
+                catch (Exception e)
+                {
+                    _DialogShow(e.Message, State.Error);
+                }
+
+            }
+            _Loading.Hide();
+            await onTablaAsyncContenido(_TituloPopup2);
+            StateHasChanged();
+            await onTablaAsyncContenidoProceso(_TituloPopup2);
+            StateHasChanged();
+            HashSet<AlmContenidoPalletsDto> selectedItems3 = new HashSet<AlmContenidoPalletsDto>();
+            selectedItems2 = selectedItems3;
+            _MessageShow("Modificados de Manera correcta", State.Success);
+            _Loading.Hide();
+
+
+
+        }
 
     }
-
 }
 

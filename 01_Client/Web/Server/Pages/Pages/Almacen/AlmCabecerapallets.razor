@@ -97,9 +97,9 @@
                                         <MudTooltip Text="Total de Pallet CONFORME" Color="Color.Secondary" Placement="Placement.Top">
                                             <MudIconButton Class="ml-5" Color="Color.Success" Icon="@Icons.Material.Outlined.Inventory2" Size="Size.Large" />  <MudText Typo="Typo.caption">@context.Conforme</MudText>
                                         </MudTooltip>
-                                        <MudTooltip Text="Total de Pallet EN PROCESO" Color="Color.Warning" Placement="Placement.Top">
+                                       @*  <MudTooltip Text="Total de Pallet EN PROCESO" Color="Color.Warning" Placement="Placement.Top">
                                             <MudIconButton Class="ml-5" Color="Color.Warning" Icon="@Icons.Material.Outlined.Inventory2" Size="Size.Large" />  <MudText Typo="Typo.caption">@context.EnProceso</MudText>
-                                        </MudTooltip>
+                                        </MudTooltip> *@
                                         <MudTooltip Text="Total de Pallet NO CONFORME" Color="Color.Error" Placement="Placement.Top">
                                             <MudIconButton Class="ml-5" Color="Color.Error" Icon="@Icons.Material.Outlined.Inventory2" Size="Size.Large" />  <MudText Typo="Typo.caption">@context.NoConforme</MudText>
                                         </MudTooltip>
@@ -250,7 +250,18 @@
                     <MudCard>
                         <MudCardHeader>
                             <CardHeaderContent>
-                                <MudText Typo="Typo.h5">PRODUCTO EN PROCESO O NO CONFORME</MudText> <br>
+                                <MudText Typo="Typo.h5">PRODUCTO REPROCESO Y NO CONFORME</MudText> <br>
+                                <MudCardActions>
+                                    <MudItem xs="12" sm="6" md="2">
+                                        <MudButton OnClick="@(() => btnSelecGuardarConforme())" Variant="Variant.Filled" Color="Color.Primary">Cambiar a Conforme</MudButton>
+                                    </MudItem>
+                                    <MudItem xs="12" sm="6" md="2">
+                                        <MudButton OnClick="@(() => btnSelecGuardarNoReprocesar())" Variant="Variant.Filled" Color="Color.Warning">Cambiar a Re Procesar</MudButton>
+                                    </MudItem>
+                                    <MudItem xs="12" sm="6" md="2">
+                                        <MudButton OnClick="@(() => btnSelecGuardarNoConforme())" Variant="Variant.Filled" Color="Color.Error">Cambiar a No Conforme</MudButton>
+                                    </MudItem>
+                                </MudCardActions>
                             </CardHeaderContent>
                         </MudCardHeader>
                         <MudCardContent>
@@ -307,6 +318,75 @@
                             </MudTable>
                         </MudCardContent>
                     </MudCard>
+                        <MudCard>
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.h5">PRODUCTOS CONFORME</MudText> <br>
+                                    <MudCardActions>
+                                        <MudItem xs="12" sm="6" md="2">
+                                            <MudButton OnClick="@(() => btnSelecGuardarNoReprocesar())" Variant="Variant.Filled" Color="Color.Warning">Cambiar a Re Procesar</MudButton>
+                                        </MudItem>
+                                        <MudItem xs="12" sm="6" md="2">
+                                            <MudButton OnClick="@(() => btnSelecGuardarNoConforme())" Variant="Variant.Filled" Color="Color.Error">Cambiar a No Conforme</MudButton>
+                                        </MudItem>
+                                    </MudCardActions>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudTable Items="@ListAlmContenidoPallets" Elevation="0" MultiSelection="true" @bind-SelectedItems="selectedItems2" Breakpoint="Breakpoint.None" FixedHeader=true FixedFooter=false
+                                          Dense=true Hover=true ReadOnly=true Filter="FilterByNumPallet">
+                                    <ToolBarContent>
+
+                                        <MudSpacer />
+                                        <MudTextField @bind-Value="numPalletSearchString" Placeholder="Buscar por número de palle" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                                    </ToolBarContent>
+                                    <HeaderContent>
+                                        @*<MudTh><MudTableSortLabel SortBy="new Func<AlmContenidoPalletsDto, object>(x=>x.IdAlmContenidoPallets)">Nr</MudTableSortLabel></MudTh>*@
+                                        <MudTh><MudTableSortLabel SortBy="new Func<AlmContenidoPalletsDto, object>(x=>x.Fecha)">Fecha</MudTableSortLabel></MudTh>
+                                        <MudTh><MudTableSortLabel SortBy="new Func<AlmContenidoPalletsDto, object>(x=>x.NumPallet)">Numero Pallet</MudTableSortLabel></MudTh>
+                                        <MudTh><MudTableSortLabel SortBy="new Func<AlmContenidoPalletsDto, object>(x=>x.DescripcionTipo)">Estado</MudTableSortLabel></MudTh>
+                                        <MudTh><MudTableSortLabel SortBy="new Func<AlmContenidoPalletsDto, object>(x=>x.DescripcionTurno)">Turno</MudTableSortLabel></MudTh>
+                                        <MudTh><MudTableSortLabel SortBy="new Func<AlmContenidoPalletsDto, object>(x=>x.CantidadBotellas)">Botellas x Pallet</MudTableSortLabel></MudTh>
+
+                                        <MudTh>Opciones</MudTh>
+                                    </HeaderContent>
+                                    <RowTemplate>
+                                        @*	<MudTd>
+                                    <MudText Typo="Typo.caption">@context.IdAlmContenidoPallets</MudText><br />
+                                    </MudTd>*@
+
+                                        <MudTd>
+                                            <MudText style="visibility: hidden;" Typo="Typo.caption">@context.IdAlmContenidoPallets</MudText>
+                                            <MudText Typo="Typo.caption">@context.Fecha</MudText><br />
+                                        </MudTd>
+                                        <MudTd>
+                                            <MudText Typo="Typo.caption">@context.NumPallet</MudText><br />
+                                        </MudTd>
+                                        <MudTd>
+                                            <MudText Typo="Typo.caption">@context.DescripcionTipo</MudText><br />
+                                        </MudTd>
+                                        <MudTd>
+                                            <MudText Typo="Typo.caption">@context.DescripcionTurno</MudText><br />
+                                        </MudTd>
+                                        <MudTd>
+                                            <MudText Typo="Typo.caption">@context.CantidadBotellas</MudText><br />
+                                        </MudTd>
+                                        <MudTd>
+
+                                            <div class="d-flex">
+                                                <div class="ml-auto">
+                                                    <MudTooltip Text="Eliminar" Color="Color.Default" Placement="Placement.Top">
+                                                        <MudIconButton Color="Color.Error" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" OnClick="@(() => ShowBtnEliminarContenido(context.IdAlmContenidoPallets))" /><MudText Typo="Typo.caption"></MudText>
+                                                    </MudTooltip>
+
+                                                </div>
+                                            </div>
+                                        </MudTd>
+                                    </RowTemplate>
+                                </MudTable>
+                            </MudCardContent>
+                        </MudCard>
+
                 </div>
             </MudCardContent>
         </Content>

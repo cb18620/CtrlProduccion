@@ -589,20 +589,6 @@ C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\01_Client\Web\Server\obj\Debug\n
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\01_Client\Web\Server\obj\Debug\net6.0\Server.pdb
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\01_Client\Web\Server\obj\Debug\net6.0\Server.genruntimeconfig.cache
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\01_Client\Web\Server\obj\Debug\net6.0\ref\Server.dll
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.csproj.AssemblyReference.cache
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.Resources.Pages.Authentication.Login.Resource.resources
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.Resources.SfResources.resources
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.Resources.SfResources.es.resources
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.csproj.GenerateResource.cache
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.AssemblyInfoInputs.cache
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.AssemblyInfo.cs
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.csproj.CoreCompileInputs.cache
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.RazorAssemblyInfo.cache
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.RazorAssemblyInfo.cs
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.sourcelink.json
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\bin\Debug\net6.0\appsettings.json
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\bin\Debug\net6.0\Server.staticwebassets.runtime.json
@@ -641,6 +627,20 @@ C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\b
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\bin\Debug\net6.0\Infraestructura.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\bin\Debug\net6.0\Infraestructura.pdb
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\bin\Debug\net6.0\Dominio.pdb
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.csproj.AssemblyReference.cache
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.Resources.Pages.Authentication.Login.Resource.resources
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.Resources.SfResources.resources
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.Resources.SfResources.es.resources
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.csproj.GenerateResource.cache
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.AssemblyInfoInputs.cache
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.AssemblyInfo.cs
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.csproj.CoreCompileInputs.cache
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.RazorAssemblyInfo.cache
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.RazorAssemblyInfo.cs
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.sourcelink.json
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\es\Server.resources.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\staticwebassets.development.json

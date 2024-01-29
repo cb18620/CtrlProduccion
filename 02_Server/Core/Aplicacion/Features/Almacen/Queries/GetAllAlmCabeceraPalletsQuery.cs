@@ -30,7 +30,7 @@ namespace Aplicacion.Features.Almacen.Queries
 
             public async Task<Response<List<AlmCabeceraPalletsDto>>> Handle(GetAllAlmCabeceraPalletsQuery request, CancellationToken cancellationToken)
             {
-                var _AlmCabeceraPallets = await _repositoryAsync.ListAsync( new AlmCabeceraPalletSpecification());
+                var _AlmCabeceraPallets = await _repositoryAsync.ListAsync(new AlmCabeceraPalletSpecification());
                 var _AlmCabeceraPalletsDto = _mapper.Map<List<AlmCabeceraPalletsDto>>(_AlmCabeceraPallets);
                 return new Response<List<AlmCabeceraPalletsDto>>(_AlmCabeceraPalletsDto);
             }
@@ -41,12 +41,12 @@ namespace Aplicacion.Features.Almacen.Queries
 
     public class AlmCabeceraPalletSpecification : Specification<AlmCabeceraPallets>
     {
-     public AlmCabeceraPalletSpecification()
+        public AlmCabeceraPalletSpecification()
         {
             Query.Include(x => x.Moldes)
                 .Include(y => y.Colors)
                 .Include(z => z.Lineas);
-           
-    }
+
+        }
     }
 }

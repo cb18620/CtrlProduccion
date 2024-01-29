@@ -30,6 +30,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZXNcQWxtYWNlblxBbG1DYWJlY2VyYXBhbGxldHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/SERGIO - ENVIBOL/Documents/GitHub/CtrlProduccion/01_Client/Web/Server/Pages/Pages/Almacen/DespachoProductoTerminado.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZXNcQWxtYWNlblxEZXNwYWNob1Byb2R1Y3RvVGVybWluYWRvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/SERGIO - ENVIBOL/Documents/GitHub/CtrlProduccion/01_Client/Web/Server/Pages/Pages/Authentication/Forgot.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZXNcQXV0aGVudGljYXRpb25cRm9yZ290LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -56,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/SERGIO - ENVIBOL/Documents/GitHub/CtrlProduccion/01_Client/Web/Server/Pages/Pages/Persona/PgDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZXNcUGVyc29uYVxQZ0RpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SERGIO - ENVIBOL/Documents/GitHub/CtrlProduccion/01_Client/Web/Server/Pages/Pages/Reportes/Reportes.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZXNcUmVwb3J0ZXNcUmVwb3J0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/SERGIO - ENVIBOL/Documents/GitHub/CtrlProduccion/01_Client/Web/Server/Pages/Pages/Transporte/Transporte.razor]

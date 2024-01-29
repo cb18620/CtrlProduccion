@@ -1,4 +1,5 @@
-﻿
+﻿using Dominio.Entities;
+using Aplicacion.Almacen.DTOs;
 using Aplicacion.DTOs;
 using Aplicacion.DTOs.Almacen;
 using Aplicacion.DTOs.empresa;
@@ -7,13 +8,13 @@ using Aplicacion.DTOs.Segurity;
 using Aplicacion.DTOs.Transporte;
 using Aplicacion.Features.Aplicacion.Parametricas.Commands;
 using AutoMapper;
-using Dominio.Entities;
 using Dominio.Entities.Almacen;
 using Dominio.Entities.empresa;
 
 using Dominio.Entities.Seguridad;
 using Dominio.Entities.Seguridadmetricas;
 using Dominio.Entities.Transporte;
+using Dominio.Entities.Vistas;
 
 namespace Aplicacion.Mappings
 {
@@ -30,7 +31,12 @@ namespace Aplicacion.Mappings
             CreateMap<InsEmpresa, InsEmpresaDto>();
             CreateMap<InsTransporte, TransporteDto>();
             CreateMap<AlmCabeceraPallets, AlmCabeceraPalletsDto>();
-            CreateMap<AlmContenidoPallets, AlmContenidoPalletsDto>();   
+            CreateMap<AlmContenidoPallets, AlmContenidoPalletsDto>();
+            CreateMap<AlmSalidadespacho, AlmSalidadespachoDto>();
+            CreateMap<AlmSalidadespachodetalle, AlmSalidadespachodetalleDto>();
+            CreateMap<Vpalletalmacen, VpalletalmacenDto>();
+            CreateMap<Vpalletalmacend, VpalletalmacendDto>();
+            CreateMap<AlmSalidadespacho, DespachoDto>();
             /**///**
 
             #endregion
@@ -46,6 +52,11 @@ namespace Aplicacion.Mappings
             CreateMap<AlmCabeceraPalletsDto, AlmCabeceraPallets>();
             CreateMap<AlmContenidoPalletsDto, AlmContenidoPallets>();
             CreateMap<ValmCabecerapallets, ValmCabecerapalletsDto>();
+            CreateMap<AlmSalidadespachoDto, AlmSalidadespacho>();
+            CreateMap<AlmSalidadespachodetalleDto, AlmSalidadespachodetalle>();
+            CreateMap<VpalletalmacenDto, Vpalletalmacen>();
+            CreateMap<VpalletalmacendDto, Vpalletalmacend>();
+            CreateMap<DespachoDto, AlmSalidadespacho>();
 
 
             #endregion 

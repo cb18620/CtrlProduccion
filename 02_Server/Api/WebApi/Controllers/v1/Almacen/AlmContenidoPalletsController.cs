@@ -25,6 +25,7 @@ namespace WebApi.Controllers.v1.Almacen
         {
             return Ok(await Mediator.Send(new GetAllAlmContenidoPalletsProcesoQuery { idCabecera = idCabecera }));
         }
+
         [HttpGet("DetalleControl/{idCabecera},{NumPallet}")]
         [Authorize]
         public async Task<IActionResult> DetalleControl(int NumPallet, int idCabecera)

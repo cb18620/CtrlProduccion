@@ -1,0 +1,140 @@
+﻿@page "/Almacen/Despachos"
+@inherits MainBaseComponent
+@layout MainLayout
+@using Infraestructura.Models.Clasificador
+@using Infraestructura.Models.Almacen
+@using Infraestructura.Models.Transporte
+@using Infraestructura.Models.Empresas
+
+@using Syncfusion.Blazor.Popups
+@inject IJSRuntime JSRuntime
+
+<MudTabs Elevation="4" Rounded="true" Color="@Color.Dark" PrevIcon="@Icons.Material.Filled.SkipPrevious" NextIcon="@Icons.Material.Filled.SkipNext">
+    <MudTabPanel Text="GESTION DE DESPACHOS ">
+        <div>
+            <MudCard>
+                <EditForm OnInvalidSubmit="OnValidAsyncDespacho" Model="_almsalidadespachopos">
+                    <DataAnnotationsValidator />
+                    <MudCardContent>
+                        <MudGrid>
+                            <MudItem xs="12" sm="6" md="6">
+                                <MudDatePicker @bind-Value="_almsalidadespachopos.Fecha" For="@(() => _almsalidadespachopos.Fecha)" Label="FECHA" Variant="Variant.Outlined" Margin="Margin.Dense" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.LensBlur" AdornmentColor="Color.Primary" @bind-Date="date"></MudDatePicker>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_almsalidadespachopos.NumeroListaempaque" For="@(() => _almsalidadespachopos.NumeroListaempaque)" Label="Lista de Empaque" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+
+
+
+                            <MudItem xs="12" sm="6" md="4">
+                                <CustomAutoComplete TItem="EmpresaDto"
+                                                    jsonData="@JsonEmpresaList"
+                                                    NameValue="IdinsEmpresa"
+                                                    NameDescripcion="RazonSocial"
+                                                    @bind-DataValue="_almsalidadespachopos.IdinsEmpresa"
+                                                    pPlaceHolder="Seleccione una empresa" />
+                            </MudItem>
+
+                            <MudItem xs="12" sm="6" md="4">
+
+
+                                <CustomAutoComplete TItem="TransporteDto"
+                                                    jsonData="@jsonTransporteList"
+                                                    NameValue="IdinsTransporte"
+                                                    NameDescripcion="NombreTransportista"
+                                                    @bind-DataValue="_almsalidadespachopos.IdinsTransporte"
+                                                    pPlaceHolder="Transporte" />
+
+                            </MudItem>
+
+                            <MudItem xs="12" sm="6" md="4">
+                                <MudTextField @bind-Value="_almsalidadespachopos.Observacion" For="@(() => _almsalidadespachopos.Observacion)" Label="Observacion" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+
+                        </MudGrid>
+                    </MudCardContent>
+                    <MudCardActions>
+
+                        <MudButton OnClick="@(() => SaveDespacho())" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Unarchive" Color="Color.Success">Guardar</MudButton>
+                    </MudCardActions>
+                </EditForm>
+            </MudCard>
+            <MudCard>
+                <MudTable Items="@AlmSalidaDespachoListaTabla" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped">
+                    <ToolBarContent>
+
+                        <MudSpacer />
+                        <MudTextField @bind-Value="searchString" Placeholder="Buscar" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                    </ToolBarContent>
+                    <HeaderContent>
+                        <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachoDto, object>(x=>x.IdalmSalidadespacho)">Nr</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachoDto, object>(x=>x.NumeroListaempaque)">Empaque</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachoDto, object>(x=>x.NombreTransportista)">Transportista</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachoDto, object>(x=>x.NroLicencia)">Licencia</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachoDto, object>(x=>x.Matricula)">Placa</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachoDto, object>(x=>x.Marca)">Marca</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachoDto, object>(x=>x.Color)">Color</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachoDto, object>(x=>x.RazonSocial)">Empresa</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachoDto, object>(x=>x.Nit)">Nit</MudTableSortLabel></MudTh>
+                        <MudTh class="sticky-right-column">OPCIONES</MudTh>
+                    </HeaderContent>
+
+                    <RowTemplate>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.IdalmSalidadespacho</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.NumeroListaempaque</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.NombreTransportista</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.NroLicencia</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.Matricula</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.Marca</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.Color</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.RazonSocial</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.Nit</MudText><br />
+                            </MudTd>
+
+                            @*  <MudTd class="sticky-right-column">
+
+                        <div class="d-flex">
+                        <div class="ml-auto">
+
+                        <MudFab Color="Color.Tertiary" Icon="@Icons.Material.Filled.Delete" aria-label="Eliminar Articulo" OnClick="@((e) => OpenDialog())" Variant="Variant.Filled" />-->
+                        <MudTooltip Text="Editar" Color="Color.Secondary" Placement="Placement.Top">
+                        <MudIconButton  Color="Color.Warning" Variant="Variant.Filled"   Icon="@Icons.Material.Filled.Edit" Size="Size.Small"  OnClick="@(() => ShowBtnEdit4(context.Idsolicitud))"/><MudText Typo="Typo.caption"></MudText>
+                        </MudTooltip>
+                        <MudTooltip Text="Eliminar" Color="Color.Default" Placement="Placement.Top">
+                        <MudIconButton  Color="Color.Error" Variant="Variant.Filled"   Icon="@Icons.Material.Filled.Delete" Size="Size.Small"  OnClick="@(() => ShowBtnElimina(context.Idsolicitud))" /><MudText Typo="Typo.caption"></MudText>
+                        </MudTooltip>
+
+                        <MudTooltip Text="Adicionar Datos" Color="Color.Secondary" Placement="Placement.Top">
+                        <MudIconButton Color="Color.Secondary" Variant="Variant.Filled" Icon="@Icons.Material.Filled.ListAlt" Size="Size.Small" OnClick="@(() => ShowBtnaddDetalle(context.Idsolicitud))" /><MudText Typo="Typo.caption"></MudText>
+                        </MudTooltip>
+
+                        </div>
+                        </div>
+                        </MudTd> *@
+                        </RowTemplate>
+                        <PagerContent>
+                            <MudTablePager />
+                        </PagerContent>
+
+                    </MudTable>
+                </MudCard>
+            </div>
+        </MudTabPanel>
+    </MudTabs>

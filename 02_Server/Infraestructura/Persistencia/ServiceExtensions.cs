@@ -31,6 +31,7 @@ namespace Persistencia
             #region Repositories
             services.AddTransient<IDetallePalletsRepository, DetallePalletsRepository>();
             services.AddTransient<IDetallePalletsProcesoRepository, DetallePalletsProcesoRepository>();
+            services.AddTransient<ISalidadespachoRepository, SalidadespachoRepository>();
 
 
 
