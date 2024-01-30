@@ -22,6 +22,10 @@ namespace Server.Pages.Pages.Almacen
 {
     public partial class DespachoProductoTerminado
     {
+        private HashSet<VpalletalmacenDto> selectedItems1 = new HashSet<VpalletalmacenDto>();
+        //private HashSet<VpalletalmacendDto> selectedItems2 = new HashSet<VpalletalmacendDto>();
+        private List<VpalletalmacenDto> Palletalmacen = new List<VpalletalmacenDto>();
+        private List<VpalletalmacenDto> Palletalmacenn { get; set; }
         public AlmSalidadespachoDto _almsalidadespachonuevo = new AlmSalidadespachoDto();
         public DespachoDto _almsalidadespachopos = new DespachoDto();
         public List<AlmSalidadespachoDto> AlmSalidaDespachoListaTabla { get; set; }
@@ -220,8 +224,94 @@ namespace Server.Pages.Pages.Almacen
 
             this.popupAdmViewPallets = false;
         }
+        protected async Task btnSelecEliminarDetalle()
+
+        {
+           
+        }
+
+        protected async Task btnSelecGuardarDetalle()
+        {
 
 
 
+
+            String valores = (selectedItems1 == null ? "" : string.Join(", ", selectedItems1.Select(x => x.IdAlmContenidoPallets)));
+            String[] arreglo = valores.Split(',');
+
+
+
+            _AlmSalidadespachodetalleNuevo.IdalmSalidadespacho = _TituloPopup2;
+            _AlmSalidadespachodetalleNuevo.IdalmSalidadespachodetalle = 0;
+            _Loading.Show();
+            foreach (var l in arreglo)
+            {
+                int price = Int32.Parse(l);
+                _AlmSalidadespachodetalleNuevo.NumeroPallet = Int32.Parse(l);
+                var s = Palletalmacen.Where(x => x.IdAlmContenidoPallets == price).ToList();
+                _AlmSalidadespachodetalleNuevo.CantidadBotellasSalida = s[0].CantidadBotellasSalida;
+                try
+                {
+
+                    var vrespost = await _Rest.PostAsync<int?>("AlmSalidadespachodetalle", new { _AlmSalidadespachodetalle = _AlmSalidadespachodetalleNuevo });
+
+                    _MessageShow(vrespost.Message, vrespost.State);
+
+                    if (vrespost.State != State.Success)
+                    {
+                        vrespost.Errors.ForEach(x =>
+                        {
+                            _MessageShow(x, State.Warning);
+                        });
+                        return;
+                    }
+
+                    // _navMgr.NavigateTo("/Afiliacion/Empresas", true);
+                }
+                catch (Exception e)
+                {
+                    _Loading.Hide();
+                    _MessageShow(e.Message, State.Error);
+                }
+
+
+            }
+
+
+            //await onTablaAlmacenV();
+            await onTablaAlmacenV(_TituloPopup2);
+            StateHasChanged();
+            StateHasChanged();
+            HashSet<VpalletalmacenDto> selectedItems1clear = new HashSet<VpalletalmacenDto>();
+            selectedItems1 = selectedItems1clear;
+            _Loading.Hide();
+
+        }
+        protected async Task onTablaAlmacenV(int id)
+        {
+            try
+            {
+                _Loading.Show();
+                var _result = await _Rest.GetAsync<List<VpalletalmacenDto>>($"Despacho/stockpallet/{id}");
+                _Loading.Hide();
+                if (_result.State != State.Success)
+                {
+                    _DialogShow(_result.Message, _result.State);
+                }
+                Palletalmacenn = _result.Data;
+                List<VpalletalmacenDto> PalletalmacenVacio = new List<VpalletalmacenDto>();
+                Palletalmacen = PalletalmacenVacio;
+                foreach (VpalletalmacenDto a in Palletalmacenn)
+                {
+                    a.CantidadBotellasSalida = a.CantidadBotellas;
+                    Palletalmacen.Add(a);
+                }
+                StateHasChanged();
+            }
+            catch (Exception e)
+            {
+                _MessageShow(e.Message, State.Error);
+            }
+        }
     }
 }

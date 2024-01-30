@@ -56,13 +56,13 @@ namespace WebApi.Controllers.v1.Almacen
         }
 
 
-        /*
+
         [HttpGet("Vpalletalmacen")]
         [Authorize]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Vpalletalmacen()
         {
             return Ok(await Mediator.Send(new GetAllVpalletalmacenQuery()));
-        }*/
+        }
 
         [HttpGet("Vpalletalmacend/{idorden}")]
         [Authorize]
