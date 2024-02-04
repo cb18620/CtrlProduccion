@@ -4,7 +4,7 @@ using Infraestructura.Models.Almacen;
 using Infraestructura.Models.Transporte;
 using Infraestructura.Models.Clasificador;
 using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.JSInterop;
 using Syncfusion.Blazor.Lists;
@@ -220,10 +220,9 @@ namespace Server.Pages.Pages.Almacen
         }
         protected async Task btnCancelPop()
         {
-
-
-            this.popupAdmViewPallets = false;
+           this.popupAdmViewPallets = false;
         }
+
         protected async Task btnSelecEliminarDetalle()
 
         {
@@ -279,7 +278,7 @@ namespace Server.Pages.Pages.Almacen
 
 
             //await onTablaAlmacenV();
-            await onTablaAlmacenV(_TituloPopup2);
+            await onTablaAlmacenV();
             StateHasChanged();
             StateHasChanged();
             HashSet<VpalletalmacenDto> selectedItems1clear = new HashSet<VpalletalmacenDto>();
@@ -287,31 +286,47 @@ namespace Server.Pages.Pages.Almacen
             _Loading.Hide();
 
         }
-        protected async Task onTablaAlmacenV(int id)
+
+        protected async Task onTablaAlmacenV()
         {
             try
             {
                 _Loading.Show();
-                var _result = await _Rest.GetAsync<List<VpalletalmacenDto>>($"Despacho/stockpallet/{id}");
+                var _result = await _Rest.GetAsync<List<VpalletalmacenDto>>("AlmSalidadespachodetalle/Vpalletalmacen");
                 _Loading.Hide();
+
                 if (_result.State != State.Success)
                 {
                     _DialogShow(_result.Message, _result.State);
+                    return; // Detiene la ejecución si el estado no es exitoso
                 }
-                Palletalmacenn = _result.Data;
-                List<VpalletalmacenDto> PalletalmacenVacio = new List<VpalletalmacenDto>();
-                Palletalmacen = PalletalmacenVacio;
-                foreach (VpalletalmacenDto a in Palletalmacenn)
-                {
-                    a.CantidadBotellasSalida = a.CantidadBotellas;
-                    Palletalmacen.Add(a);
-                }
+
+                Palletalmacen = _result.Data;
                 StateHasChanged();
+            }
+            catch (HttpRequestException httpEx)
+            {
+                // Captura errores específicos de las solicitudes HTTP
+                _MessageShow("Error de solicitud HTTP: " + httpEx.Message, State.Error);
+            }
+            catch (JsonException jsonEx)
+            {
+                // Captura errores de deserialización JSON
+                _MessageShow("Error de procesamiento JSON: " + jsonEx.Message, State.Error);
             }
             catch (Exception e)
             {
-                _MessageShow(e.Message, State.Error);
+                // Captura cualquier otro tipo de error general
+                _MessageShow("Error: " + e.Message, State.Error);
+            }
+            finally
+            {
+                // Asegura que _Loading.Hide() se ejecute siempre, incluso si hay un error
+                _Loading.Hide();
             }
         }
+
+
+
     }
 }

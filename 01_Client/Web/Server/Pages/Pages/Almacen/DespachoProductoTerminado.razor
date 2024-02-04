@@ -157,41 +157,68 @@
 
 
 
-                            <MudTable Items="@AlmSalidadespachodetalle" MultiSelection="true" @bind-SelectedItems="selectedItems2" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped">
-                                <!-- Definición de las columnas y otros elementos de la tabla aquí -->
-                           
+                            <MudTable Items="@Palletalmacen" MultiSelection="true" @bind-SelectedItems="selectedItems1" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped"
+                                      >
+                                <ToolBarContent>
 
+                                    <MudSpacer />
+                                    <MudTextField @bind-Value="searchString" Placeholder="Buscar" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
+                                                  Class="mt-0"></MudTextField>
+                                </ToolBarContent>
+                                <HeaderContent>
 
-                            <ToolBarContent>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.NumPallet)">NUMERO PALLET</MudTableSortLabel></MudTh>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.CantidadBotellas)">CANT. DE BOTELLAS (SALDO)</MudTableSortLabel></MudTh>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.CantidadBotellasSalida)">CANT. DE BOTELLAS SALIDA</MudTableSortLabel></MudTh>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.Fecha)">FECHA DE PRODUCCION</MudTableSortLabel></MudTh>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.Lineadescripcion)">LINEA</MudTableSortLabel></MudTh>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.Moldedescripcion)">PRODUCTO</MudTableSortLabel></MudTh>
 
-                                <MudSpacer />
-                                <MudTextField @bind-Value="searchString" Placeholder="Busca´rr" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
-                            </ToolBarContent>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.Colordescripcion)">COLOR</MudTableSortLabel></MudTh>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.OrdenProduccion)">ORDEN DE PRODUCCION</MudTableSortLabel></MudTh>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.Tipodescripcion)">ESTADO</MudTableSortLabel></MudTh>
 
-                            <HeaderContent>
-                                <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachodetalleDto, object>(x=>x.IdalmSalidadespachodetalle)">Nr</MudTableSortLabel></MudTh>
-                                <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachodetalleDto, object>(x=>x.IdalmSalidadespacho)">Codigo</MudTableSortLabel></MudTh>
-                                <MudTh><MudTableSortLabel SortBy="new Func<AlmSalidadespachodetalleDto, object>(x=>x.NumeroPallet)">Numero de Pallet</MudTableSortLabel></MudTh>
-                            </HeaderContent>
+                                </HeaderContent>
 
-                            @* <RowTemplate>
-                            <MudTd Style="width:40px">
+                                <RowTemplate>
 
-                            <MudText Typo="Typo.caption">@context.IdalmSalidadespachodetalle</MudText><br />
-                            </MudTd>
-                            <MudTd>
-                            <MudText Typo="Typo.caption">@context.IdalmSalidadespacho</MudText><br />
-                            </MudTd>
-                            <MudTd>
-                            <MudText Typo="Typo.caption">@context.NumeroPallet</MudText><br />
-                            </MudTd>
-                            </RowTemplate> *@
-                            <PagerContent>
-                                <MudTablePager PageSizeOptions="new int[]{50, 100}" />
-                            </PagerContent>
-                            <FooterContent>
-                                <MudTd colspan="3">Select All</MudTd>
-                            </FooterContent>
+                                    <MudTd>
+                                        <MudText style="visibility: hidden;" Typo="Typo.caption">@context.IdAlmContenidoPallets</MudText>
+                                        <MudText Typo="Typo.caption">@context.NumPallet</MudText><br />
+                                    </MudTd>
+                                    <MudTd>
+                                        <MudText Typo="Typo.caption">@context.CantidadBotellas</MudText><br />
+                                    </MudTd>
+                                    <MudTd>
+                                        <MudNumericField @bind-Value="@context.CantidadBotellasSalida" Variant="Variant.Outlined" Margin="Margin.Dense"></MudNumericField><br />
+                                    </MudTd>
+
+                                    <MudTd>
+                                        <MudText Typo="Typo.caption" Format="yyyy-MM-dd" Label="Date" InputType="InputType.Date">@context.Fecha</MudText><br />
+                                    </MudTd>
+                                    <MudTd>
+                                        <MudText Typo="Typo.caption">@context.Lineadescripcion</MudText><br />
+                                    </MudTd>
+                                    <MudTd>
+                                        <MudText Typo="Typo.caption">@context.Moldedescripcion</MudText><br />
+                                    </MudTd>
+
+                                    <MudTd>
+                                        <MudText Typo="Typo.caption">@context.Colordescripcion</MudText><br />
+                                    </MudTd>
+                                    <MudTd>
+                                        <MudText Typo="Typo.caption">@context.OrdenProduccion</MudText><br />
+                                    </MudTd>
+                                    <MudTd>
+                                        <MudText Typo="Typo.caption">@context.Tipodescripcion</MudText><br />
+                                    </MudTd>
+                                </RowTemplate>
+                                <PagerContent>
+                                    <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                                </PagerContent>
+                                <FooterContent>
+                                    <MudTd colspan="3">Seleccionar Todo</MudTd>
+                                </FooterContent>
                             </MudTable>
 
 
