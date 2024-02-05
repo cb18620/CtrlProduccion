@@ -22,8 +22,9 @@ namespace Infraestructura.Models.Almacen
         public string OrdenProduccion { get; set; }
         public DateTime Fecha { get; set; }
         public string Observacion { get; set; }
-        public int CantidadBotellas { get; set; }
+        public int? CantidadBotellas { get; set; }
         public int? CantidadBotellasSalida { get; set; }
+        public bool VerDetalle {get; set;}  
 
     }
 }

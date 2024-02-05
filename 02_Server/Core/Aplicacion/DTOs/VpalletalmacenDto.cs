@@ -24,7 +24,7 @@ namespace Aplicacion.DTOs
         public string OrdenProduccion { get; set; }
         public DateTime Fecha { get; set; }
         public string Observacion { get; set; }
-        public int CantidadBotellas { get; set; }
+        public int? CantidadBotellas { get; set; }
 
 
     }

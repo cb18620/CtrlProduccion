@@ -15,6 +15,7 @@ using Dominio.Entities.Seguridad;
 using Dominio.Entities.Seguridadmetricas;
 using Dominio.Entities.Transporte;
 using Dominio.Entities.Vistas;
+using Aplicacion.DTOs.Vistas;
 
 namespace Aplicacion.Mappings
 {
@@ -37,6 +38,7 @@ namespace Aplicacion.Mappings
             CreateMap<Vpalletalmacen, VpalletalmacenDto>();
             CreateMap<Vpalletalmacend, VpalletalmacendDto>();
             CreateMap<AlmSalidadespacho, DespachoDto>();
+            CreateMap<Vsolicitudescomercial, VsolicitudescomercialDto>();
             /**///**
 
             #endregion
@@ -57,6 +59,7 @@ namespace Aplicacion.Mappings
             CreateMap<VpalletalmacenDto, Vpalletalmacen>();
             CreateMap<VpalletalmacendDto, Vpalletalmacend>();
             CreateMap<DespachoDto, AlmSalidadespacho>();
+            CreateMap<VsolicitudescomercialDto, Vsolicitudescomercial>();
 
 
             #endregion 

@@ -2,6 +2,7 @@ using Infraestructura.Abstract;
 using Infraestructura.Component;
 using Infraestructura.Models.Almacen;
 using Infraestructura.Models.Transporte;
+using Infraestructura.Models.Vistas;
 using Infraestructura.Models.Clasificador;
 using Microsoft.AspNetCore.Components.Forms;
 using System.Net.Http;
@@ -24,8 +25,10 @@ namespace Server.Pages.Pages.Almacen
     {
         private HashSet<VpalletalmacenDto> selectedItems1 = new HashSet<VpalletalmacenDto>();
         //private HashSet<VpalletalmacendDto> selectedItems2 = new HashSet<VpalletalmacendDto>();
-        private List<VpalletalmacenDto> Palletalmacen = new List<VpalletalmacenDto>();
+        private List<VpalletalmacenDto> VPalletalmacen = new List<VpalletalmacenDto>();
         private List<VpalletalmacenDto> Palletalmacenn { get; set; }
+       
+        private List<VpalletalmacendDto> Despachodetalledes { get; set; }
         public AlmSalidadespachoDto _almsalidadespachonuevo = new AlmSalidadespachoDto();
         public DespachoDto _almsalidadespachopos = new DespachoDto();
         public List<AlmSalidadespachoDto> AlmSalidaDespachoListaTabla { get; set; }
@@ -66,12 +69,31 @@ namespace Server.Pages.Pages.Almacen
                 onTablaAsyncCabeceraPallet(),
                 GetTransporteo(),
                 GetEmpresas(),
-
+                onTablaAlmacenV(),
+                onTablaAsync4(),
         };
 
             await Task.WhenAll(tasks);
         }
 
+        protected async Task onTablaAsync4()
+        {
+            try
+            {
+                _Loading.Show();
+                var _result = await _Rest.GetAsync<List<VsolicitudescomercialDto>>("Despacho/SolicitudDes");
+                _Loading.Hide();
+                if (_result.State != State.Success)
+                {
+                    _DialogShow(_result.Message, _result.State);
+                }
+                AlmSalidadespacho = _result.Data.OrderByDescending(x => x.IdalmSalidadespacho).ToList();
+            }
+            catch (Exception e)
+            {
+                _MessageShow(e.Message, State.Error);
+            }
+        }
         protected async Task GetTransporteo()
         {
             try
@@ -172,13 +194,14 @@ namespace Server.Pages.Pages.Almacen
         //AGREGAR EL DETALLE
 
         private static List<AlmSalidadespachodetalleDto> AlmSalidadespachodetalle { get; set; }
-
-
+        private List<VsolicitudescomercialDto> AlmSalidadespacho { get; set; }
+        private List<VsolicitudescomercialDto> AlmSalidadespachoDes { get; set; }
         public AlmSalidadespachodetalleDto _AlmSalidadespachodetalleNuevo = new AlmSalidadespachodetalleDto();
         string _TituloPopup; string _TituloPopup1; int _TituloPopup2;
         private bool popupAdmViewPallets { get; set; } = false;
+        private bool popupAdmViewPalletsdet { get; set; } = false;
+        private bool popupAdmViewPalletsDato { get; set; } = false;
 
-       
         private HashSet<AlmSalidadespachodetalleDto> selectedItems2 = new HashSet<AlmSalidadespachodetalleDto>();
         protected void OpenDialog1(int v_IdEmpresa)
         {
@@ -187,6 +210,18 @@ namespace Server.Pages.Pages.Almacen
             _TituloPopup = vAfiliacion.IdalmSalidadespacho.ToString();
             //this.popupAdmViewExtractoVerificados = true;
 
+        }
+        private void Expand()
+        {
+            popupAdmViewPallets = true;
+        }
+        private void Expand2()
+        {
+            popupAdmViewPalletsdet = true;
+        }
+        private void Expand1()
+        {
+            popupAdmViewPalletsDato = true;
         }
         protected async Task onTablaAsyncPallets(int idorden)
         {
@@ -217,10 +252,21 @@ namespace Server.Pages.Pages.Almacen
             await onTablaAsyncPallets(vAfiliacion.IdalmSalidadespacho);
             _TituloPopup2 = vAfiliacion.IdalmSalidadespacho;
             this.popupAdmViewPallets = true;
+
+            StateHasChanged();
+            await onTablaAsyncPalletsDes(vAfiliacion.IdalmSalidadespacho);
+            StateHasChanged();
         }
         protected async Task btnCancelPop()
         {
            this.popupAdmViewPallets = false;
+            this.popupAdmViewPallets = false;
+            this.popupAdmViewPalletsDato = false;
+            this.popupAdmViewPalletsdet = false;
+            await onTablaAlmacenV();
+            await onTablaAsync4();
+            StateHasChanged();
+            StateHasChanged();
         }
 
         protected async Task btnSelecEliminarDetalle()
@@ -247,7 +293,7 @@ namespace Server.Pages.Pages.Almacen
             {
                 int price = Int32.Parse(l);
                 _AlmSalidadespachodetalleNuevo.NumeroPallet = Int32.Parse(l);
-                var s = Palletalmacen.Where(x => x.IdAlmContenidoPallets == price).ToList();
+                var s = VPalletalmacen.Where(x => x.IdAlmContenidoPallets == price).ToList();
                 _AlmSalidadespachodetalleNuevo.CantidadBotellasSalida = s[0].CantidadBotellasSalida;
                 try
                 {
@@ -278,9 +324,11 @@ namespace Server.Pages.Pages.Almacen
 
 
             //await onTablaAlmacenV();
+            await onTablaAsync4();
             await onTablaAlmacenV();
             StateHasChanged();
             StateHasChanged();
+            await onTablaAsyncPalletsDes(_TituloPopup2);
             HashSet<VpalletalmacenDto> selectedItems1clear = new HashSet<VpalletalmacenDto>();
             selectedItems1 = selectedItems1clear;
             _Loading.Hide();
@@ -294,38 +342,38 @@ namespace Server.Pages.Pages.Almacen
                 _Loading.Show();
                 var _result = await _Rest.GetAsync<List<VpalletalmacenDto>>("AlmSalidadespachodetalle/Vpalletalmacen");
                 _Loading.Hide();
+                if (_result.State != State.Success)
+                {
+                    _DialogShow(_result.Message, _result.State);
+                }
+                VPalletalmacen = _result.Data;
+            }
+            catch (Exception e)
+            {
+                _MessageShow(e.Message, State.Error);
+            }
+        }
+
+        protected async Task onTablaAsyncPalletsDes(int idorden)
+        {
+            try
+            {
+
+                var _result = await _Rest.GetAsync<List<VpalletalmacendDto>>($"AlmSalidadespachodetalle/Vpalletalmacend/{idorden}");
 
                 if (_result.State != State.Success)
                 {
                     _DialogShow(_result.Message, _result.State);
-                    return; // Detiene la ejecución si el estado no es exitoso
                 }
+                Despachodetalledes = _result.Data;
 
-                Palletalmacen = _result.Data;
-                StateHasChanged();
-            }
-            catch (HttpRequestException httpEx)
-            {
-                // Captura errores específicos de las solicitudes HTTP
-                _MessageShow("Error de solicitud HTTP: " + httpEx.Message, State.Error);
-            }
-            catch (JsonException jsonEx)
-            {
-                // Captura errores de deserialización JSON
-                _MessageShow("Error de procesamiento JSON: " + jsonEx.Message, State.Error);
             }
             catch (Exception e)
             {
-                // Captura cualquier otro tipo de error general
-                _MessageShow("Error: " + e.Message, State.Error);
+                _MessageShow(e.Message, State.Error);
             }
-            finally
-            {
-                // Asegura que _Loading.Hide() se ejecute siempre, incluso si hay un error
-                _Loading.Hide();
-            }
-        }
 
+        }
 
 
     }

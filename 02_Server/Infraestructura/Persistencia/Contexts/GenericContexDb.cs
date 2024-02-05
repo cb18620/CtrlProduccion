@@ -30,9 +30,9 @@ namespace Persistencia.Contexts
         public DbSet<ValmCabecerapallets> ValmCabecerapallets { get; set; }
         public DbSet<AlmSalidadespacho> Salidadespacho { get; set; }
         public DbSet<AlmSalidadespachodetalle> Salidadespachodetalle { get; set; }
-        
-            public DbSet<Vpalletalmacend> Vpalletalmacend {  get; set; }    
+        public DbSet<Vpalletalmacend> Vpalletalmacend {  get; set; }    
         public DbSet<Vpalletalmacen> vpalletalmacen { get; set; }
+        public DbSet<Vsolicitudescomercial> Vsolicitudescomercial { get; set; } 
 
         #endregion
 
