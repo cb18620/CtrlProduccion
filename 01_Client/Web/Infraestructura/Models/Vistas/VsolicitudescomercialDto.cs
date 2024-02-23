@@ -11,7 +11,7 @@ namespace Infraestructura.Models.Vistas
         public int IdalmSalidadespacho { get; set; }
         public string NumeroListaempaque { get; set; } 
         public DateTime? FechaDespacho { get; set; } 
-        public int Idsolicitud { get; set; }
+      
         public string? Observacion { get; set; }
         public string? UsuarioCreacion { get; set; } 
         public DateTime? FechaCreacion { get; set; }

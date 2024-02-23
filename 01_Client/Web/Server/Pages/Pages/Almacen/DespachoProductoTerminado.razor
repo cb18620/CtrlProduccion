@@ -107,6 +107,15 @@
                             <MudTd>
                                 <MudText Typo="Typo.caption">@context.Color</MudText><br />
                             </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.NumLicencia</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.Largo</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.Ancho</MudText><br />
+                            </MudTd>
 
                             <MudTd class="sticky-right-column">
 
@@ -124,6 +133,22 @@
                                         <MudTooltip Text="Adicionar Datos" Color="Color.Secondary" Placement="Placement.Top">
                                             <MudIconButton Color="Color.Secondary" Variant="Variant.Filled" Icon="@Icons.Material.Filled.ListAlt" Size="Size.Small" OnClick="@(() => ShowBtnadd(context.IdalmSalidadespacho))" /><MudText Typo="Typo.caption"></MudText>
                                         </MudTooltip>
+                                        @if (context.IdalmSalidadespacho > 0 && context.TotalPallet > 0)
+                                    {
+                                        <MudTooltip Text="Aprobar Salida" Color="Color.Primary" Placement="Placement.Top">
+                                            <MudIconButton Color="Color.Primary" Variant="Variant.Filled" Icon="@Icons.Material.Filled.ContentPasteGo" Size="Size.Small" OnClick="@(() => ShowBtnAprobar(context.IdalmSalidadespacho))" /><MudText Typo="Typo.caption"></MudText>
+                                        </MudTooltip>
+                                        <MudTooltip Text="Rechazar Salida" Color="Color.Error" Placement="Placement.Top">
+                                            <MudIconButton Color="Color.Error" Variant="Variant.Filled" Icon="@Icons.Material.Filled.ContentPasteGo" Size="Size.Small" OnClick="@(() => ShowBtnRechazarEliminar(context.IdalmSalidadespacho))" /><MudText Typo="Typo.caption"></MudText>
+                                        </MudTooltip>
+                                    }
+                                    else
+                                    {
+                                        <MudTooltip Text="Rechazar Salida" Color="Color.Error" Placement="Placement.Top">
+                                            <MudIconButton Color="Color.Error" Variant="Variant.Filled" Icon="@Icons.Material.Filled.ContentPasteGo" Size="Size.Small" OnClick="@(() => ShowBtnRechazar(context.IdalmSalidadespacho))" /><MudText Typo="Typo.caption"></MudText>
+                                        </MudTooltip>
+                                    }
+
 
                                     </div>
                                 </div>
@@ -167,7 +192,7 @@
                                 <HeaderContent>
 
                                     <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.NumPallet)">NUMERO PALLET</MudTableSortLabel></MudTh>
-                                    <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.CantidadBotellas)">CANT. DE BOTELLAS (SALDO)</MudTableSortLabel></MudTh>
+                                    <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.CantidadBotellas)">CANT. DE BOTELLAS (SALDOo)</MudTableSortLabel></MudTh>
                                     <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.CantidadBotellasSalida)">CANT. DE BOTELLAS SALIDA</MudTableSortLabel></MudTh>
                                     <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.Fecha)">FECHA DE PRODUCCION</MudTableSortLabel></MudTh>
                                     <MudTh><MudTableSortLabel SortBy="new Func<VpalletalmacenDto, object>(x=>x.Lineadescripcion)">LINEA</MudTableSortLabel></MudTh>
@@ -388,4 +413,95 @@
             </div>
 
         </MudTabPanel>
+
+        <MudTabPanel Text="ORDENES DESPACHADAS">
+                 <MudCard>
+                <MudTable Items="@AlmSalidadespachoDes" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped">
+                    <ToolBarContent>
+
+                        <MudSpacer />
+                        <MudTextField @bind-Value="searchString" Placeholder="Buscar" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                    </ToolBarContent>
+                    <HeaderContent>
+                        <MudTh><MudTableSortLabel SortBy="new Func<VsolicitudescomercialDto, object>(x=>x.IdalmSalidadespacho)">Nr</MudTableSortLabel></MudTh>
+                 
+                        <MudTh><MudTableSortLabel SortBy="new Func<VsolicitudescomercialDto, object>(x=>x.Observacion)">OBSERVACIONES</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<VsolicitudescomercialDto, object>(x=>x.FechaDespacho)">FECHA DESPACHO</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<VsolicitudescomercialDto, object>(x=>x.NombreTransportista)">NOMBRE TRANSPORTISTA</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<VsolicitudescomercialDto, object>(x=>x.NumPlaca)">NUM PLACA</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<VsolicitudescomercialDto, object>(x=>x.Marca)">MARCA</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<VsolicitudescomercialDto, object>(x=>x.Color)">COLOR</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<VsolicitudescomercialDto, object>(x=>x.NumLicencia)">NUM LICENCIA</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<VsolicitudescomercialDto, object>(x=>x.Largo)">LARGO</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<VsolicitudescomercialDto, object>(x=>x.Ancho)">ANCHO</MudTableSortLabel></MudTh>
+                        
+        
+                        <MudTh class="sticky-right-column">ESTADO</MudTh>
+                    </HeaderContent>
+
+                    <RowTemplate>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.IdalmSalidadespacho</MudText><br />
+                        </MudTd>
+                   
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.Observacion</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.FechaDespacho</MudText><br />
+                        </MudTd>
+                          <MudTd>
+                            <MudText Typo="Typo.caption">@context.NombreTransportista</MudText><br />
+                        </MudTd>
+                            <MudTd>
+                            <MudText Typo="Typo.caption">@context.NumPlaca</MudText><br />
+                        </MudTd>
+                            <MudTd>
+                            <MudText Typo="Typo.caption">@context.Marca</MudText><br />
+                        </MudTd>
+                            <MudTd>
+                            <MudText Typo="Typo.caption">@context.Color</MudText><br />
+                        </MudTd>
+                         <MudTd>
+                            <MudText Typo="Typo.caption">@context.NumLicencia</MudText><br />
+                        </MudTd>
+                          <MudTd>
+                            <MudText Typo="Typo.caption">@context.Largo</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.Ancho</MudText><br />
+                        </MudTd>
+                        <MudTd class="sticky-right-column">
+             
+                               <div class="d-flex">
+                                <div class="ml-auto">
+
+
+                                    @if (context.Estado ==1 )
+                                    {
+                                        
+                                <MudTooltip Text="ver Detalle" Color="Color.Tertiary" Placement="Placement.Top">
+                                        <MudIconButton Color="Color.Tertiary" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Search" Size="Size.Small" OnClick="@(() => ShowBtnadd2(context.IdalmSalidadespacho))" /><MudText Typo="Typo.caption"></MudText>
+                                    </MudTooltip>
+
+                                        
+                                            <MudChip Icon="@Icons.Material.Filled.Check" Color="Color.Success" >APROBADO</MudChip>
+                                        
+                                      
+                                    }else{
+                                        
+                                           <MudChip Icon="@Icons.Material.Filled.Close" Color="Color.Error" >RECHAZADO</MudChip>
+                                        
+                                    }
+                                </div>
+                                </div>
+                        </MudTd>
+                    </RowTemplate>
+                    <PagerContent>
+                        <MudTablePager />
+                    </PagerContent>
+                    
+                </MudTable>
+                    </MudCard>
+             </MudTabPanel>
     </MudTabs>

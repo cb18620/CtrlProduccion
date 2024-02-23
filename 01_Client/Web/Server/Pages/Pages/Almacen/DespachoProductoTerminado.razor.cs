@@ -211,6 +211,8 @@ namespace Server.Pages.Pages.Almacen
             //this.popupAdmViewExtractoVerificados = true;
 
         }
+
+        
         private void Expand()
         {
             popupAdmViewPallets = true;
@@ -256,6 +258,17 @@ namespace Server.Pages.Pages.Almacen
             StateHasChanged();
             await onTablaAsyncPalletsDes(vAfiliacion.IdalmSalidadespacho);
             StateHasChanged();
+        }
+        protected async void ShowBtnadd2(int v_IdEmpresa)
+        {
+            var vAfiliacion = AlmSalidadespachoDes.First(f => f.IdalmSalidadespacho == v_IdEmpresa);
+            Expand2();
+            _TituloPopup = "REGISTRO - DETALLE DE SALIDA DE PALLETS DE ALMACEN DE PT";
+            _TituloPopup1 = "PALLETS ASIGNADOS";
+            StateHasChanged();
+            await onTablaAsyncPalletsDes(vAfiliacion.IdalmSalidadespacho);
+            StateHasChanged();
+
         }
         protected async Task btnCancelPop()
         {
@@ -375,6 +388,49 @@ namespace Server.Pages.Pages.Almacen
 
         }
 
+   protected async void ShowBtnAprobar(int id)
+        {
+            var vAfiliacion = AlmSalidadespacho.First(f => f.Idsolicitud == id);
+            AlmAprobacionDto post = new AlmAprobacionDto()
+            {
+                idsolicitud = id,
+                codigoDespacho = vAfiliacion.NumeroListaempaque,
+                estado = 1,
+            };
+
+            string codi_sistema = Configuration["apicomercializacion"];
+            var url = codi_sistema+"DesSolicitud/Service/" + id.ToString();
+
+            var json = JsonConvert.SerializeObject(post);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            using (HttpClient httpClient = new HttpClient())
+            {
+                ObjectEntity _user = new ObjectEntity();
+                _user = await _Storage.DatosUsuario();
+                // httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer Token" + _user.jwToken);
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _user.jwToken);
+                var response = await httpClient.PutAsync(url, data);
+                if (response.IsSuccessStatusCode)
+                {
+                    var resulAuth = await response.Content.ReadAsStringAsync();
+                    var jsons = JsonConvert.DeserializeObject(resulAuth);
+                    _MessageShow("Despacho Aprobado y remitito a Comercial", State.Success);
+                    await onTablaAsync4();
+                    StateHasChanged();
+                    await onTablaAsync4des();
+                    StateHasChanged();
+
+                }
+                else {
+                    _MessageShow("Error en el almacenado de informacion", State.Error);                
+                }
+               
+                
+
+            }
+
+        }
 
     }
 }
