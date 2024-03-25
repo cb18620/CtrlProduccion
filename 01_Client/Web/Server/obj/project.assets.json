@@ -1861,19 +1861,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SERGIO - ENVIBOL\\.nuget\\packages\\": {}
+    "C:\\Users\\PC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SERGIO - ENVIBOL\\Documents\\GitHub\\CtrlProduccion\\01_Client\\Web\\Server\\Server.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Documents\\PROYECTO\\CtrlProduccion\\01_Client\\Web\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "C:\\Users\\SERGIO - ENVIBOL\\Documents\\GitHub\\CtrlProduccion\\01_Client\\Web\\Server\\Server.csproj",
-      "packagesPath": "C:\\Users\\SERGIO - ENVIBOL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SERGIO - ENVIBOL\\Documents\\GitHub\\CtrlProduccion\\01_Client\\Web\\Server\\obj\\",
+      "projectPath": "C:\\Users\\PC\\Documents\\PROYECTO\\CtrlProduccion\\01_Client\\Web\\Server\\Server.csproj",
+      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PC\\Documents\\PROYECTO\\CtrlProduccion\\01_Client\\Web\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\SERGIO - ENVIBOL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1887,8 +1887,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\SERGIO - ENVIBOL\\Documents\\GitHub\\CtrlProduccion\\01_Client\\Web\\Infraestructura\\Infraestructura.csproj": {
-              "projectPath": "C:\\Users\\SERGIO - ENVIBOL\\Documents\\GitHub\\CtrlProduccion\\01_Client\\Web\\Infraestructura\\Infraestructura.csproj"
+            "C:\\Users\\PC\\Documents\\PROYECTO\\CtrlProduccion\\01_Client\\Web\\Infraestructura\\Infraestructura.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\PROYECTO\\CtrlProduccion\\01_Client\\Web\\Infraestructura\\Infraestructura.csproj"
             }
           }
         }
@@ -1963,20 +1963,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"SixLabors.ImageSharp\" 3.0.1 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-65x7-c272-7g7r",
-      "libraryId": "SixLabors.ImageSharp",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }
