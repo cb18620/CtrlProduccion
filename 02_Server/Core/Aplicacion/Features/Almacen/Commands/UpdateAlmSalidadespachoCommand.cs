@@ -18,7 +18,8 @@ namespace Aplicacion.Features.Almacen.Commands
     public class UpdateAlmSalidadespachoCommand : IRequest<Response<int>>
     {
         public int IdalmSalidadespacho { get; set; }
-        //TODO: agregar parametros
+        public int Estado { get; set; }
+        
     }
 
     public class UpdateAlmSalidadespachoCommandHandler : IRequestHandler<UpdateAlmSalidadespachoCommand, Response<int>>
@@ -41,6 +42,7 @@ namespace Aplicacion.Features.Almacen.Commands
             else
             {
                 _AlmSalidadespacho.IdalmSalidadespacho = request.IdalmSalidadespacho;
+                _AlmSalidadespacho.Estado = request.Estado; 
                 //TODO: agregar mas propiedades
 
                 await _repositoryAsync.UpdateAsync(_AlmSalidadespacho);
@@ -54,10 +56,7 @@ namespace Aplicacion.Features.Almacen.Commands
 
         public UpdateAlmSalidadespachoCommandValidator()
         {
-            //TODO: agregar regla de validaciones ..
-            //RuleFor(p => p.IdfactFacturacabecera)
-            //    .NotEmpty().WithMessage("textomensaje0")
-            //    .MaximumLength(120).WithMessage("textomensaje");
+            
         }
     }
 }

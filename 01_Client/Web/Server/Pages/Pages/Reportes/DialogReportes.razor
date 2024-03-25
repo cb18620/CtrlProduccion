@@ -1,0 +1,25 @@
+﻿@using MudBlazor
+@inherits MainBaseComponent
+@layout MainLayout
+@inject IJSRuntime JSRuntime
+@inject IDialogService DialogService
+
+<MudDialog>
+    <DialogContent>
+        <MudDateRangePicker Label="Seleccione una fecha" @bind-DateRange="dateRange" Clearable="true" />
+        <MudSelect T="int" Label="Filtrar por:" @bind-Value="filtroOpcion" AnchorOrigin="Origin.BottomCenter">
+
+            <MudSelectItem Value="1">Decorado</MudSelectItem>
+            <MudSelectItem Value="7">Linea 1</MudSelectItem>
+            <MudSelectItem Value="19">Linea 2</MudSelectItem>
+            <MudSelectItem Value="65">Produccion</MudSelectItem>
+        </MudSelect>
+
+
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Filled.Print" OnClick="@Reporte">Generar Reporte</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Error" StartIcon="@Icons.Filled.Cancel" OnClick="@Cancel">Cancelar</MudButton>
+
+    </DialogActions>
+</MudDialog>

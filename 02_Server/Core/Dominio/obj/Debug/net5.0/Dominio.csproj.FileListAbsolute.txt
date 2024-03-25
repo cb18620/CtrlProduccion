@@ -106,6 +106,18 @@ C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Core\Dominio\obj\Debug
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Core\Dominio\obj\Debug\net5.0\refint\Dominio.dll
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.pdb
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Core\Dominio\obj\Debug\net5.0\ref\Dominio.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\bin\Debug\net5.0\Dominio.deps.json
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\bin\Debug\net5.0\Dominio.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\bin\Debug\net5.0\Dominio.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.AssemblyInfo.cs
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\refint\Dominio.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\ref\Dominio.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Dominio\bin\Debug\net5.0\Dominio.deps.json
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Dominio\bin\Debug\net5.0\Dominio.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Dominio\bin\Debug\net5.0\Dominio.pdb
@@ -119,15 +131,3 @@ C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Dominio
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\refint\Dominio.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.pdb
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\ref\Dominio.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\bin\Debug\net5.0\Dominio.deps.json
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\bin\Debug\net5.0\Dominio.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\bin\Debug\net5.0\Dominio.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.csproj.AssemblyReference.cache
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.AssemblyInfoInputs.cache
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.AssemblyInfo.cs
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.csproj.CoreCompileInputs.cache
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\refint\Dominio.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\Dominio.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Dominio\obj\Debug\net5.0\ref\Dominio.dll

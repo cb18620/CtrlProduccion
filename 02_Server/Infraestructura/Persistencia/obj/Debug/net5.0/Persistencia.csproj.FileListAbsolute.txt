@@ -187,6 +187,27 @@ C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Infraestructura\Persis
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\refint\Persistencia.dll
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.pdb
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\ref\Persistencia.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Persistencia.deps.json
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Persistencia.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Persistencia.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Aplicacion.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Dominio.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Identity.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Shared.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Aplicacion.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Dominio.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Identity.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Shared.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.AssemblyInfo.cs
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.csproj.CopyComplete
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\refint\Persistencia.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\ref\Persistencia.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Persistencia.deps.json
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Persistencia.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Persistencia.pdb
@@ -209,24 +230,3 @@ C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestruct
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\refint\Persistencia.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.pdb
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\ref\Persistencia.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Persistencia.deps.json
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Persistencia.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Persistencia.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Aplicacion.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Dominio.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Identity.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Shared.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Aplicacion.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Dominio.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Identity.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\bin\Debug\net5.0\Shared.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.csproj.AssemblyReference.cache
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.AssemblyInfoInputs.cache
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.AssemblyInfo.cs
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.csproj.CoreCompileInputs.cache
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.csproj.CopyComplete
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\refint\Persistencia.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\ref\Persistencia.dll

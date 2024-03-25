@@ -15,7 +15,7 @@ using MediatR;
 
 namespace Aplicacion.Features.Despacho
 {
-
+      
 
     public class GetAllVsolicitudescomercialQuery : IRequest<Response<List<VsolicitudescomercialDto>>>
     {

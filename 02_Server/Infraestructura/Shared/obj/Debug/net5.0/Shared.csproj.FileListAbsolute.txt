@@ -151,6 +151,23 @@ C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Infraestructura\Shared
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Infraestructura\Shared\obj\Debug\net5.0\refint\Shared.dll
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.pdb
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Infraestructura\Shared\obj\Debug\net5.0\ref\Shared.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Shared.deps.json
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Shared.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Shared.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Aplicacion.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Dominio.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Aplicacion.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Dominio.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.AssemblyInfo.cs
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.csproj.CopyComplete
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\refint\Shared.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\ref\Shared.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Shared.deps.json
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Shared.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Shared.pdb
@@ -169,20 +186,3 @@ C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestruct
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\refint\Shared.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.pdb
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\ref\Shared.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Shared.deps.json
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Shared.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Shared.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Aplicacion.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Dominio.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Aplicacion.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\bin\Debug\net5.0\Dominio.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.csproj.AssemblyReference.cache
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.AssemblyInfoInputs.cache
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.AssemblyInfo.cs
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.csproj.CoreCompileInputs.cache
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.csproj.CopyComplete
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\refint\Shared.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\Shared.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Infraestructura\Shared\obj\Debug\net5.0\ref\Shared.dll

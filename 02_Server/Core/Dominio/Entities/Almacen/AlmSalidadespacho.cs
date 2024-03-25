@@ -24,6 +24,6 @@ namespace Dominio.Entities.Almacen
         public InsTransporte InsTransportes { get; set; }
         public int Idsolicitud { get; set; }
         public string Observacion { get; set; }
-
+        public int Estado { get; set; }
     }
 }

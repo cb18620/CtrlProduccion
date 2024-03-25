@@ -55,16 +55,24 @@ namespace WebApi.Controllers.v1
 
 
 
-        //[HttpPut("{id}")]
-        //[Authorize]
-        //public async Task<IActionResult> Put(int id, UpdateAlmSalidadespachoCommand command)
-        //{
-        //    if (id != command.IdalmSalidadespacho)
-        //    {
-        //        return BadRequest();
-        //    }
-        //    return Ok(await Mediator.Send(command));
-        //}
+        [HttpPut("{id}")]
+        [Authorize]
+        public async Task<IActionResult> Put(int id, UpdateAlmSalidadespachoCommand command)
+        {
+            command.IdalmSalidadespacho = id; 
+            try
+            {
+                var response = await Mediator.Send(command);
+                return Ok(response); 
+            }
+            catch (Exception ex)
+            {
+                
+                return BadRequest(ex.Message);
+            }
+        }
+
+
 
 
     }

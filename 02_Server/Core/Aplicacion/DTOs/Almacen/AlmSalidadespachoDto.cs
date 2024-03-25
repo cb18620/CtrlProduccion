@@ -29,7 +29,8 @@ namespace Aplicacion.Almacen.DTOs
         public string NombreTransportista { get; set; }
         public string NroLicencia { get; set; }
         public string Categoria { get; set; }
-    
+        public int Estado { get; set; }
+
 
 
 

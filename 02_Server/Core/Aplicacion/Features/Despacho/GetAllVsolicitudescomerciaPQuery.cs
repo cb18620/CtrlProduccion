@@ -19,7 +19,7 @@ namespace Aplicacion.Features.Despacho
 
     public class GetAllVsolicitudescomercialPQuery : IRequest<Response<List<VsolicitudescomercialDto>>>
     {
-
+         
         public class GetAllVsolicitudescomercialPQueryHandler : IRequestHandler<GetAllVsolicitudescomercialPQuery, Response<List<VsolicitudescomercialDto>>>
         {
             private readonly IRepositoryAsync<Vsolicitudescomercial> _repositoryAsync;

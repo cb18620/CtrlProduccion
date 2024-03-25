@@ -29,6 +29,7 @@ namespace Infraestructura.Models.Almacen
         public string NombreTransportista { get; set; }
         public string NroLicencia { get; set; }
         public string Categoria { get; set; }
+        public int Estado { get; set; } = 0;
         public bool VerDetalle { get; set; }
 
     }

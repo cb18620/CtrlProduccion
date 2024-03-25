@@ -17,6 +17,10 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Infraestructura.Models.Empresas;
 using Dominio.Entities.Almacen;
+using static System.Net.WebRequestMethods;
+using System.Text;
+using System.Net.Http.Headers;
+
 
 
 namespace Server.Pages.Pages.Almacen
@@ -27,7 +31,7 @@ namespace Server.Pages.Pages.Almacen
         //private HashSet<VpalletalmacendDto> selectedItems2 = new HashSet<VpalletalmacendDto>();
         private List<VpalletalmacenDto> VPalletalmacen = new List<VpalletalmacenDto>();
         private List<VpalletalmacenDto> Palletalmacenn { get; set; }
-       
+
         private List<VpalletalmacendDto> Despachodetalledes { get; set; }
         public AlmSalidadespachoDto _almsalidadespachonuevo = new AlmSalidadespachoDto();
         public DespachoDto _almsalidadespachopos = new DespachoDto();
@@ -70,7 +74,9 @@ namespace Server.Pages.Pages.Almacen
                 GetTransporteo(),
                 GetEmpresas(),
                 onTablaAlmacenV(),
+
                 onTablaAsync4(),
+                onTablaAsync4des(),
         };
 
             await Task.WhenAll(tasks);
@@ -81,7 +87,7 @@ namespace Server.Pages.Pages.Almacen
             try
             {
                 _Loading.Show();
-                var _result = await _Rest.GetAsync<List<VsolicitudescomercialDto>>("Despacho/SolicitudDes");
+                var _result = await _Rest.GetAsync<List<VsolicitudescomercialDto>>("Despacho/Solicitud");
                 _Loading.Hide();
                 if (_result.State != State.Success)
                 {
@@ -160,7 +166,7 @@ namespace Server.Pages.Pages.Almacen
                     return;
                 }
                 _Loading.Hide();
-                await onTablaAsyncCabeceraPallet();
+                await onTablaAsync4();
                 _almsalidadespachopos = new DespachoDto();
                 _MessageShow("<b> agregado correctamente</b>", State.Success);
             }
@@ -170,6 +176,151 @@ namespace Server.Pages.Pages.Almacen
                 _MessageShow(e.Message, State.Error);
             }
         }
+        protected async Task ShowBtnAprobar(int id)
+        {
+            try
+            {
+                var dtoAlmSalidadespacho = new AlmSalidadespachoDto
+                {
+                    IdalmSalidadespacho = id,
+                    Estado = 1 // Establecemos el estado en 1 para "Aprobar"
+                };
+
+                var response = await _Rest.PutAsync<int>("AlmSalidadespacho", dtoAlmSalidadespacho, id);
+
+                if (response.State == State.Success)
+                {
+                    _MessageShow("Se realizo el despacho correctamente", State.Success);
+                    await onTablaAsync4();
+
+
+                }
+                else
+                {
+                    _MessageShow(response.Message, State.Error);
+                }
+            }
+            catch (Exception e)
+            {
+                _MessageShow(e.Message, State.Error);
+            }
+        }
+
+
+        protected async Task ShowBtnRechazarEliminar(int id)
+        {
+            try
+            {
+                _Loading.Show();
+
+                // Encuentra el despacho a rechazar y eliminar
+                var despacho = AlmSalidadespacho.First(f => f.IdalmSalidadespacho == id);
+                await onTablaAsyncPalletsDes(despacho.IdalmSalidadespacho);
+
+                string mess = "";
+                foreach (var d in Despachodetalledes)
+                {
+                    var deleteResponse = await _Rest.DeleteAsync<int>("AlmSalidadespachodetalle", d.IdalmSalidadespachodetalle);
+                    if (!deleteResponse.Succeeded)
+                    {
+                        _MessageShow(deleteResponse.Message, deleteResponse.State);
+                    }
+                    else
+                    {
+                        mess += deleteResponse.Data + ",";
+                    }
+                }
+
+                // Después de eliminar los detalles, cambia el estado del despacho principal
+                var updateObject = new
+                {
+                    DespachoPallets = new
+                    {
+                        idalmSalidadespacho = despacho.IdalmSalidadespacho,
+                        estado = 2, // Asumiendo que 2 es un estado que representa "rechazado"
+                        usuarioModificacion = "usuarioRechazo", // Reemplaza con el usuario actual
+                        fechaModificacion = DateTime.Now
+                    }
+                };
+
+                // Envía la solicitud de actualización
+                var response = await _Rest.PostAsync<int?>("AlmSalidadespacho/PosDespacho", updateObject);
+
+                if (response.State != State.Success)
+                {
+                    response.Errors?.ForEach(error =>
+                    {
+                        _MessageShow(error, State.Warning);
+                    });
+                }
+                else
+                {
+                    _MessageShow("Despacho rechazado y detalles eliminados correctamente", State.Success);
+                }
+
+                await onTablaAsync4();
+            }
+            catch (Exception e)
+            {
+                _Loading.Hide();
+                _MessageShow($"Error al rechazar y eliminar el despacho: {e.Message}", State.Error);
+            }
+            finally
+            {
+                _Loading.Hide();
+            }
+        }
+
+        protected async Task ShowBtnRechazar(int id)
+        {
+            try
+            {
+                _Loading.Show();
+
+                // Encuentra el despacho a rechazar
+                var despacho = AlmSalidadespacho.First(f => f.IdalmSalidadespacho == id);
+
+                // Crea el objeto para actualizar el estado a rechazado
+                var updateObject = new
+                {
+                    DespachoPallets = new
+                    {
+                        idalmSalidadespacho = despacho.IdalmSalidadespacho,
+                        estado = 2, // Suponemos que el estado 2 significa rechazado
+                        usuarioModificacion = "usuarioRechazo", // Debes obtener el usuario actual
+                        fechaModificacion = DateTime.Now
+                    }
+                };
+
+                // Envía la solicitud de actualización
+                var response = await _Rest.PostAsync<int?>("AlmSalidadespacho/PosDespacho", updateObject);
+
+                _MessageShow(response.Message, response.State);
+
+                if (response.State != State.Success)
+                {
+                    response.Errors?.ForEach(error =>
+                    {
+                        _MessageShow(error, State.Warning);
+                    });
+                    return;
+                }
+
+                await onTablaAsyncCabeceraPallet();
+                _MessageShow("Despacho rechazado correctamente", State.Success);
+            }
+            catch (Exception e)
+            {
+                _Loading.Hide();
+                _MessageShow($"Error al rechazar el despacho: {e.Message}", State.Error);
+            }
+            finally
+            {
+                _Loading.Hide();
+            }
+        }
+
+
         protected async Task onTablaAsyncCabeceraPallet()
         {
             try
@@ -259,6 +410,7 @@ namespace Server.Pages.Pages.Almacen
             await onTablaAsyncPalletsDes(vAfiliacion.IdalmSalidadespacho);
             StateHasChanged();
         }
+
         protected async void ShowBtnadd2(int v_IdEmpresa)
         {
             var vAfiliacion = AlmSalidadespachoDes.First(f => f.IdalmSalidadespacho == v_IdEmpresa);
@@ -278,6 +430,7 @@ namespace Server.Pages.Pages.Almacen
             this.popupAdmViewPalletsdet = false;
             await onTablaAlmacenV();
             await onTablaAsync4();
+            await onTablaAsync4des();
             StateHasChanged();
             StateHasChanged();
         }
@@ -339,6 +492,7 @@ namespace Server.Pages.Pages.Almacen
             //await onTablaAlmacenV();
             await onTablaAsync4();
             await onTablaAlmacenV();
+            await onTablaAsync4des();
             StateHasChanged();
             StateHasChanged();
             await onTablaAsyncPalletsDes(_TituloPopup2);
@@ -388,48 +542,37 @@ namespace Server.Pages.Pages.Almacen
 
         }
 
-   protected async void ShowBtnAprobar(int id)
+        protected async Task onTablaAsync4des()
         {
-            var vAfiliacion = AlmSalidadespacho.First(f => f.Idsolicitud == id);
-            AlmAprobacionDto post = new AlmAprobacionDto()
+            try
             {
-                idsolicitud = id,
-                codigoDespacho = vAfiliacion.NumeroListaempaque,
-                estado = 1,
-            };
-
-            string codi_sistema = Configuration["apicomercializacion"];
-            var url = codi_sistema+"DesSolicitud/Service/" + id.ToString();
-
-            var json = JsonConvert.SerializeObject(post);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-
-            using (HttpClient httpClient = new HttpClient())
-            {
-                ObjectEntity _user = new ObjectEntity();
-                _user = await _Storage.DatosUsuario();
-                // httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer Token" + _user.jwToken);
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _user.jwToken);
-                var response = await httpClient.PutAsync(url, data);
-                if (response.IsSuccessStatusCode)
+                _Loading.Show();
+                var _result = await _Rest.GetAsync<List<VsolicitudescomercialDto>>("Despacho/SolicitudDes");
+                _Loading.Hide();
+                if (_result.State != State.Success)
                 {
-                    var resulAuth = await response.Content.ReadAsStringAsync();
-                    var jsons = JsonConvert.DeserializeObject(resulAuth);
-                    _MessageShow("Despacho Aprobado y remitito a Comercial", State.Success);
-                    await onTablaAsync4();
-                    StateHasChanged();
-                    await onTablaAsync4des();
-                    StateHasChanged();
-
+                    _DialogShow(_result.Message, _result.State);
                 }
-                else {
-                    _MessageShow("Error en el almacenado de informacion", State.Error);                
-                }
-               
-                
-
+                AlmSalidadespachoDes = _result.Data.OrderByDescending(x => x.IdalmSalidadespacho).ToList();
             }
+            catch (Exception e)
+            {
+                _MessageShow(e.Message, State.Error);
+            }
+        }
+        public async Task repjasper(int Iddespacho)
+        {
 
+            //Parametros en jasper "orden_produccion"
+
+
+            await JSRuntime.InvokeVoidAsync("CargaReportePdf",
+            new
+            {           
+                ruta = "/reports/ENVIBOL/PRODUCCION/Desarrollo/DetalleDespacho",
+                idAlmSalidaDespachoParam = Iddespacho,
+
+            });
         }
 
     }

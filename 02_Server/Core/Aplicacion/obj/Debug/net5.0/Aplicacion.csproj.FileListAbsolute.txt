@@ -178,6 +178,26 @@ C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Core\Aplicacion\obj\De
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Core\Aplicacion\obj\Debug\net5.0\refint\Aplicacion.dll
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.pdb
 C:\Users\PC\Documents\PROYECTO\14-11-2023\vacio\02_Server\Core\Aplicacion\obj\Debug\net5.0\ref\Aplicacion.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\bin\Debug\net5.0\Aplicacion.deps.json
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\bin\Debug\net5.0\Aplicacion.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\bin\Debug\net5.0\Aplicacion.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\bin\Debug\net5.0\Dominio.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\bin\Debug\net5.0\Dominio.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.Resources.Exceptions.Resource.resources
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.Resources.Generic.Resource.resources
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.Resources.RefCursors.Resource.resources
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.Resources.Validators.ResourceEntidad.resources
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.GenerateResource.cache
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.AssemblyInfo.cs
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.CopyComplete
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\refint\Aplicacion.dll
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.pdb
+C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\ref\Aplicacion.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\bin\Debug\net5.0\Aplicacion.deps.json
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\bin\Debug\net5.0\Aplicacion.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\bin\Debug\net5.0\Aplicacion.pdb
@@ -199,23 +219,3 @@ C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicac
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\refint\Aplicacion.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.pdb
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\ref\Aplicacion.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\bin\Debug\net5.0\Aplicacion.deps.json
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\bin\Debug\net5.0\Aplicacion.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\bin\Debug\net5.0\Aplicacion.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\bin\Debug\net5.0\Dominio.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\bin\Debug\net5.0\Dominio.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.AssemblyReference.cache
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.Resources.Exceptions.Resource.resources
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.Resources.Generic.Resource.resources
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.Resources.RefCursors.Resource.resources
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.Resources.Validators.ResourceEntidad.resources
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.GenerateResource.cache
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.AssemblyInfoInputs.cache
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.AssemblyInfo.cs
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.CoreCompileInputs.cache
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.CopyComplete
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\refint\Aplicacion.dll
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.pdb
-C:\Users\PC\source\repos\appcomercialenv-master\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\ref\Aplicacion.dll

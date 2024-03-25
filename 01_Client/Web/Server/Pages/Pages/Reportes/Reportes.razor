@@ -1,44 +1,57 @@
 ﻿@page "/Reportes"
+@using Microsoft.Extensions.Configuration
+@using Infraestructura.Models.Clasificador
+@inherits MainBaseComponent
+@layout MainLayout
+@inject IJSRuntime JSRuntime
+@inject IConfiguration Configuration
 
-<MudPaper Class="py-8" Style="background: linear-gradient(to bottom right, #f3f3f3, #e2e2e2)">
 
-  <MudContainer MaxWidth="MaxWidth.Large" Class="pa-8">
-  
-    <MudGrid>
-    
-      <MudItem xs="12">
-        <MudText Align="Align.Center" Typo="Typo.h3" >
-          <MudIcon Icon="@Icons.Material.Filled.Insights" Size="Size.Large" Class="mr-3" />  
-          Centro de Reportes
-        </MudText>
-      </MudItem>
-      
-      <MudItem xs="12" md="4">
-        
-        <MudCard Elevation="25">
-        
-          <MudCardHeader>
-            <MudText Typo="Typo.h6">Ventas por Sucursal</MudText>  
-          </MudCardHeader>
-          
-          <MudCardContent>
-            <!-- gráfico -->  
-          </MudCardContent>
-          
-          <div/>
-          
-          <MudCardActions>
-            <MudButton Variant="Variant.Filled" FullWidth="true" StartIcon="@Icons.Custom.Brands.MudBlazor">Consulta</MudButton>
-          </MudCardActions>
-        
-        </MudCard>
-        
-      </MudItem>
-      
-      <!-- Más Tarjetas de Reportes -->
-      
-    </MudGrid>
-  
-  </MudContainer>
-  
+<MudPaper Elevation="5" Class="my-4 p-4" Style="background: linear-gradient(to right, #ffffff, #f2f2f2); border-radius: 8px;">
+
+
+
+    <MudContainer Class="py-2" MaxWidth="MaxWidth.Medium">
+        <MudText Typo="Typo.h4" Class="text-white mb-2" GutterBottom="true">Centro de Reportes</MudText>
+
+        <MudGrid Justify="Justify.Center">
+            <MudItem xs="12" sm="6" md="4">
+                <MudCard Elevation="3" Class="mb-4">
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6">Reporte Producción Formulario 1</MudText>
+
+                    </MudCardContent>
+                    <MudCardActions Class="justify-content-center">
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Filled.QueryStats" OnClick="@OpenDialog">Consulta</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4">
+                <MudCard Elevation="3" Class="mb-4">
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6">Reporte de Producción Formulario 4</MudText>
+                        
+                    </MudCardContent>
+                    <MudCardActions Class="justify-content-center">
+                        <MudDatePicker Label="Fecha" Clearable="@(true)" @bind-Date="SelectedDate" />
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Filled.QueryStats" OnClick="@ReporteFormulario4">Consulta</MudButton>                  
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4">
+                <MudCard Elevation="3" Class="mb-4">
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6">Reportes Producción Actual Conforme</MudText>
+
+                    </MudCardContent>
+                    <MudCardActions Class="justify-content-center">
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Filled.QueryStats" OnClick="@ReporteConformes">Consulta</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+
+        </MudGrid>
+    </MudContainer>
 </MudPaper>
