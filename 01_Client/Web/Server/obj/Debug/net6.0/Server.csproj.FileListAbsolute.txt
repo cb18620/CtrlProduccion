@@ -722,7 +722,6 @@ C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\o
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\scopedcss\Pages\Pages\Persona\Persona.razor.rz.scp.css
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\scopedcss\bundle\Server.styles.css
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\scopedcss\projectbundle\Server.bundle.scp.css
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.csproj.CopyComplete
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\refint\Server.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.pdb
@@ -797,3 +796,4 @@ C:\Users\PC\Documents\PROYECTO\CtrlProduccion\01_Client\Web\Server\obj\Debug\net
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.pdb
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.genruntimeconfig.cache
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\ref\Server.dll
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\01_Client\Web\Server\obj\Debug\net6.0\Server.csproj.Up2Date

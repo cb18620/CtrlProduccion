@@ -225,7 +225,6 @@ C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestruct
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.AssemblyInfo.cs
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.csproj.CoreCompileInputs.cache
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.sourcelink.json
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.csproj.CopyComplete
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\refint\Persistencia.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.pdb
@@ -251,3 +250,4 @@ C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Infraestructura\Persiste
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\refint\Persistencia.dll
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persistencia.pdb
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\ref\Persistencia.dll
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Persistencia\obj\Debug\net5.0\Persiste.7F7D6998.Up2Date

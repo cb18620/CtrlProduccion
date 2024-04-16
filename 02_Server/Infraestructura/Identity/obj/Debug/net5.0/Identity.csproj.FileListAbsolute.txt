@@ -213,7 +213,6 @@ C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestruct
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Identity\obj\Debug\net5.0\Identity.AssemblyInfo.cs
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Identity\obj\Debug\net5.0\Identity.csproj.CoreCompileInputs.cache
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Identity\obj\Debug\net5.0\Identity.sourcelink.json
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Identity\obj\Debug\net5.0\Identity.csproj.CopyComplete
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Identity\obj\Debug\net5.0\Identity.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Identity\obj\Debug\net5.0\refint\Identity.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Identity\obj\Debug\net5.0\Identity.pdb
@@ -239,3 +238,4 @@ C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Infraestructura\Identity
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Infraestructura\Identity\obj\Debug\net5.0\Identity.pdb
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Infraestructura\Identity\obj\Debug\net5.0\Identity.genruntimeconfig.cache
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Infraestructura\Identity\obj\Debug\net5.0\ref\Identity.dll
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Infraestructura\Identity\obj\Debug\net5.0\Identity.csproj.Up2Date

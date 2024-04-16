@@ -660,19 +660,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC\\.nuget\\packages\\": {}
+    "C:\\Users\\SERGIO - ENVIBOL\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\Documents\\PROYECTO\\CtrlProduccion\\02_Server\\Core\\Aplicacion\\Aplicacion.csproj",
+      "projectUniqueName": "C:\\Users\\SERGIO - ENVIBOL\\Documents\\GitHub\\CtrlProduccion\\02_Server\\Core\\Aplicacion\\Aplicacion.csproj",
       "projectName": "Aplicacion",
-      "projectPath": "C:\\Users\\PC\\Documents\\PROYECTO\\CtrlProduccion\\02_Server\\Core\\Aplicacion\\Aplicacion.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\Documents\\PROYECTO\\CtrlProduccion\\02_Server\\Core\\Aplicacion\\obj\\",
+      "projectPath": "C:\\Users\\SERGIO - ENVIBOL\\Documents\\GitHub\\CtrlProduccion\\02_Server\\Core\\Aplicacion\\Aplicacion.csproj",
+      "packagesPath": "C:\\Users\\SERGIO - ENVIBOL\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\SERGIO - ENVIBOL\\Documents\\GitHub\\CtrlProduccion\\02_Server\\Core\\Aplicacion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SERGIO - ENVIBOL\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -686,8 +686,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\PC\\Documents\\PROYECTO\\CtrlProduccion\\02_Server\\Core\\Dominio\\Dominio.csproj": {
-              "projectPath": "C:\\Users\\PC\\Documents\\PROYECTO\\CtrlProduccion\\02_Server\\Core\\Dominio\\Dominio.csproj"
+            "C:\\Users\\SERGIO - ENVIBOL\\Documents\\GitHub\\CtrlProduccion\\02_Server\\Core\\Dominio\\Dominio.csproj": {
+              "projectPath": "C:\\Users\\SERGIO - ENVIBOL\\Documents\\GitHub\\CtrlProduccion\\02_Server\\Core\\Dominio\\Dominio.csproj"
             }
           }
         }
@@ -696,6 +696,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -759,7 +764,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -214,7 +214,6 @@ C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicac
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.AssemblyInfo.cs
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.CoreCompileInputs.cache
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.sourcelink.json
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.CopyComplete
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\refint\Aplicacion.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.pdb
@@ -239,3 +238,4 @@ C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debu
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\refint\Aplicacion.dll
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.pdb
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\ref\Aplicacion.dll
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Core\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.Up2Date

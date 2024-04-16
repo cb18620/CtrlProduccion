@@ -856,7 +856,6 @@ C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Api\WebApi\o
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Api\WebApi\obj\Debug\net5.0\staticwebassets\msbuild.build.WebApi.props
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Api\WebApi\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.WebApi.props
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Api\WebApi\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.WebApi.props
-C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Api\WebApi\obj\Debug\net5.0\WebApi.csproj.CopyComplete
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Api\WebApi\obj\Debug\net5.0\WebApi.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Api\WebApi\obj\Debug\net5.0\refint\WebApi.dll
 C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Api\WebApi\obj\Debug\net5.0\WebApi.pdb
@@ -942,3 +941,4 @@ C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Api\WebApi\obj\Debug\net
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Api\WebApi\obj\Debug\net5.0\WebApi.pdb
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Api\WebApi\obj\Debug\net5.0\WebApi.genruntimeconfig.cache
 C:\Users\PC\Documents\PROYECTO\CtrlProduccion\02_Server\Api\WebApi\obj\Debug\net5.0\ref\WebApi.dll
+C:\Users\SERGIO - ENVIBOL\Documents\GitHub\CtrlProduccion\02_Server\Api\WebApi\obj\Debug\net5.0\WebApi.csproj.Up2Date

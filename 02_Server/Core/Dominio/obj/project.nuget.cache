@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7PHowxLkUBwMOQfRkj0BXyxJepw6CnNzaXGsfP4EJDO0yVvastS8+sL0mIeyYcLUkg8UgR9ah0l9PjAsDm9ccA==",
+  "dgSpecHash": "YLbMycbChZkhSXlDc6yBwxJj+vVweDXl7nkDmyvvVEHTRSHREbhRO1UZSa/rFH1Tks5VXU31A0UA0yF1naJh2g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\Documents\\PROYECTO\\CtrlProduccion\\02_Server\\Core\\Dominio\\Dominio.csproj",
+  "projectFilePath": "C:\\Users\\SERGIO - ENVIBOL\\Documents\\GitHub\\CtrlProduccion\\02_Server\\Core\\Dominio\\Dominio.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\PC\\.nuget\\packages\\copilotdev.net.api\\1.1.0\\copilotdev.net.api.1.1.0.nupkg.sha512"
+    "C:\\Users\\SERGIO - ENVIBOL\\.nuget\\packages\\copilotdev.net.api\\1.1.0\\copilotdev.net.api.1.1.0.nupkg.sha512"
   ],
   "logs": []
 }
